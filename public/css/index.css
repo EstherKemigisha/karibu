@@ -1,0 +1,99 @@
+
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url('/imgs/KOL.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    justify-content: center; 
+}
+
+.content {
+    background-color:  #141414; 
+    padding: 50px;
+    border-radius: 600px;
+    box-shadow: 0 4px 8px rgba(241, 220, 28, 0.3);
+    color:  #f3ce79;
+    height: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 85%;
+    padding-bottom: 100px;
+    padding-top: 30px;
+    padding-left: 30PS;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    width: 20px;
+}
+
+h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+p {
+    font-size: 1.2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#img {
+ width: 100px;
+ border-radius: 100%;
+ text-align: center;
+ margin: 0;
+}
+
+.button-container {
+    text-align: center; 
+    margin-top: 20px; 
+  }
+  
+  button {
+    padding: 10px 20px; 
+    margin: 5px; 
+    border: none;
+    border-radius: 5px; 
+    background-color: #f3ba36; 
+    color: black;
+    font-size: 16px; 
+    cursor: pointer; 
+    font-weight: bolder;
+  }
+  
+  button:hover {
+    background-color: #f3ba36; 
+    color: black;
+    font-weight: bolder;
+  }
+  
+  .sign-in-button {
+    background-color: #fabb29;
+     color: black;
+     font-weight: bolder;
+  }
+  
+  .h2 {
+    color: rgb(21, 230, 21);
+    
+  }
+
+  #img {
+    align-content: center;
+    padding-left: 250px;
+    border-radius: 90px;
+  }

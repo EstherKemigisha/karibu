@@ -1,0 +1,30 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/css/users.css')
+.container
+  h2 Users
+  form#form(action='/updateUser?id='+user._id method="post")
+    .input-group
+      input(type='text' placeholder='Firstname' name="fname")
+      input(type='text' placeholder='Lastname' name="lname")
+    input(type='email' placeholder='Email' style='width: 101.2%; padding: 10px; margin-bottom: 15px; border: 1px solid #444; border-radius: 4px; background: #383c44; color: white;' name="email")
+    label(for='role') Role:
+    br
+    select#role(name='role')
+      option(value='sales') Sales Agent
+      option(value='manager') Manager
+      option(value='director') Director
+    br
+    br
+    label(for='branch') Branch:
+    br
+    select#branch(name='branch')
+      option(value='maganjo') Maganjo
+      option(value='mattuga') Mattuga
+    br
+    br
+    button(type='submit') Add user
+script(src='/public/js/users.js')

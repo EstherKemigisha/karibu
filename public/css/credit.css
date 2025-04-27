@@ -1,0 +1,345 @@
+body {
+    font-family: sans-serif; /* Or your preferred font */
+    background-color: #f4f4f4; /* Or your preferred background color */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    margin: 0; /* Remove default body margin */
+}
+.payment-request-container {
+    width: 550px;
+    margin: 50px auto;
+    padding-right: 20px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #162938;
+    color: white;
+    font-weight: lighter;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f3ba36;
+    
+}
+
+.contact-details, .request-details {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.input-container {
+    margin-bottom: 10px;
+    
+    
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+   font-weight: 700;
+   
+}
+
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #34495e;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    
+}
+
+.form-group > div {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #34495e;
+    color: white;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.request-payment-button {
+    background-color:  #32cd32;
+    color: white;
+    font-weight: bold;
+}
+
+/* CSS for icons */
+.input-container {
+    position: relative;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container input[type="date"] {
+    padding-left: 30px; /* Adjust based on icon size */
+}
+
+.form-group > div {
+    position: relative;
+}
+
+.form-group > div i {
+    position: absolute;
+    left: 10px;
+    top: 35px; /* Adjust based on label and input height */
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.form-group > div input[type="text"],
+.form-group > div input[type="number"],
+.form-group > div input[type="date"] {
+    padding-left: 30px; /* Adjust based on icon size */
+}
+
+/* credit table */
+/* Enhanced sale2.css */
+
+/* Base styles for better readability */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    margin: 0;
+    padding: 20px; /* Add some global padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.sales-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, more pronounced shadow */
+    width: 98%; /* Slightly wider */
+    max-width: 1600px; /* Increased max width for more content */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.sales-form h2 {
+    text-align: center;
+    color: #343a40; /* Darker heading text */
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Enhanced table styling */
+#creditssTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* For rounded corners on the table */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6; /* Light border for structure */
+}
+
+#creditssTable thead th {
+    background-color: #007bff; /* Primary blue */
+    color: #fff;
+    padding: 14px 10px;
+    text-align: left;
+    font-weight: 600; /* Slightly bolder header text */
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
+}
+
+#creditssTable tbody tr {
+    background-color: #fff;
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+#creditssTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light gray for even rows */
+}
+
+#creditssTable tbody tr:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+}
+
+#creditssTable tbody td,
+#creditssTable tbody th {
+    padding: 12px 10px;
+    border-bottom: 1px solid #dee2e6; /* Lighter border for cells */
+    text-align: left;
+    font-size: 0.9em;
+}
+
+#creditssTable tbody th {
+    font-weight: normal;
+}
+
+#creditssTable tbody tr:last-child td,
+#creditssTable tbody tr:last-child th {
+    border-bottom: none;
+}
+
+/* Improved "Update" link/button style */
+#creditssTable tbody td a,
+#creditssTable tbody td button.update-button {
+    display: inline-block;
+    background-color: #28a745; /* Success green */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+#creditssTable tbody td a:hover,
+#creditssTable tbody td button.update-button:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+}
+
+/* Improved "Delete" button style */
+.delete-button {
+    background-color: #dc3545; /* Danger red */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sales-form {
+        padding: 15px;
+    }
+
+    #creditssTable thead {
+        display: none;
+    }
+
+    #creditssTable tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da; /* Lighter border for mobile rows */
+        border-radius: 6px;
+        padding: 15px;
+    }
+
+    #creditssTable tbody td,
+    #creditssTable tbody th {
+        display: flex;
+        padding-left: 50%;
+        text-align: left;
+        position: relative;
+        border-bottom: 1px solid #ced4da;
+    }
+
+    #creditssTable tbody td::before,
+    #creditssTable tbody th::before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+        font-size: 0.85em;
+        color: #495057; /* Darker label text */
+    }
+
+    #creditssTable tbody td[data-label="Update"],
+    #creditssTable tbody td[data-label="Delete"] {
+        display: block;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    #creditssTable tbody td[data-label="Update"] a,
+    #creditssTable tbody td[data-label="Update"] button.update-button {
+        display: block;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    #creditssTable tbody td[data-label="Delete"] form {
+        margin-bottom: 0; /* Adjust form margin */
+    }
+
+    #creditssTable tbody td[data-label="Delete"] button.delete-button {
+        width: 100%;
+    }
+}
+.icon {
+  
+  color: white;
+  border-radius:40px;
+ 
+}

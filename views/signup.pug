@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Login & Registration
+    link(rel='stylesheet' href='/css/signup.css')
+  body
+    .container
+      .form-container
+        #login.form-section.active
+          h2 Login
+          form#loginform(action='/login' method='post')
+            input#email(type='text' name='email' placeholder='Email')
+            input#loginPassword(type='password' name='password' placeholder='Password')
+            button#loginSubmit.submit-btn(type='submit') Login
+            p.switch-form
+              | Don't have an account?
+              a#switchToRegister(href='#') Register
+
+        #register.form-section
+          h2 Register
+          form#form(action='/signingup' method='post' )
+            input#registerEmail(type='email' name='email' placeholder='Email' )
+            input#registerPassword(type='password' name='password' placeholder='Password' )
+            input#confirmPassword(type='password' name='confirm' placeholder='Confirm Password')
+
+            label.spaced#role(for='role') Role:
+            select.spaced#select(name="role")
+              option(value="") Select Role
+              option(value="sales agent") Sales Agent
+              option(value="manager") Manager
+              option(value="Director") Director
+
+            .branch-section
+              label.spaced#branch(for='branch') Branch:
+              select.spaced(name="branch" id="branch")
+                option(value="Maganjo") Maganjo
+                option(value="Mattuga") Mattuga
+
+            button#registerSubmit.submit-btn(type="submit") Register
+            p.switch-form
+              | Already have an account?
+              a#switchToLogin(href='#') Login
+
+      .welcome-box
+        h2 WELCOME TO KARIBU GROCERIES LTD!
+        p Your fresh buy grocery
+
+    script(src='/js/signup.js')
+
+    

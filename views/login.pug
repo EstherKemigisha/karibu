@@ -1,0 +1,33 @@
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login &amp; Registration
+  link(rel='stylesheet' href='/css/signup.css')
+.container
+  .form-container
+    form#login.form-section.active(action="/login" method="post")
+      h2 Login
+        input#loginEmail(type='email' placeholder='Email' name="email")
+      input#loginPassword(type='password' placeholder='Password' name="password")
+      button#loginSubmit.submit-btn Login
+      p.switch-form
+        | Don&apos;t have an account? 
+        a#switchToRegister(href='#') Register
+    #register.form-section
+      h2 Register
+      input#registerUsername(type='text' placeholder='Username')
+      input#registerEmail(type='email' placeholder='Email')
+      input#registerPassword(type='password' placeholder='Password')
+      button#registerSubmit.submit-btn Register
+      p.switch-form
+        | Already have an account? 
+        a#switchToLogin(href='#') Login
+  .welcome-box
+    h2 WELCOME KARIBU GROCERIES LTD!
+    p Your fresh buy grocery
+script(src='/js/signup.js')

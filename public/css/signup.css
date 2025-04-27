@@ -1,0 +1,160 @@
+body {
+    background-image: url(/imgs/bean.jpg);
+    background-color:  rgba(0, 0, 0, 0.418);
+    background-blend-mode: multiply;
+    font-family:'Franklin Gothic Medium';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  
+
+}
+/* #1f4767; */
+.container {
+    width: 500%;
+    max-width: 800px;
+    display: flex;
+    background:  #162938;
+    backdrop-filter: blur(10px);
+    box-shadow:  0px 0px 2px 2px #f3ba36;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 450px;
+    
+    
+}
+
+.form-container {
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-top: 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+   
+    padding-bottom: 50px;
+    
+}
+
+.welcome-box {
+    padding: 40px;
+    width: 40%;
+    background-image: url(/imgs/image.png);
+    background: linear-gradient(to bottom, #f3ba36, #f3ba36);
+    background-blend-mode: multiply;
+    color: #fff;
+    text-align: center;
+    font-size: x-large;
+   
+}
+
+.welcome-box h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    display: none;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.form-section h2 {
+    color: #32cd32;
+    margin-bottom: 20px;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+
+.submit-btn {
+    width: 70%;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: #f3ba36;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    color: black;
+    margin-top: 20px;
+    font-family: 'Franklin Gothic Medium';
+    font-size: larger;
+    height: 40px;
+    margin-left: 50px;
+}
+
+.switch-form {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #32cd32;
+    text-decoration: none;
+}
+
+#branch {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+
+  .spaced {
+    margin-right: 20px;
+    padding: 2px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  #role {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-weight: bold;
+  }
+
+  /* Error styling */
+.error {
+    border: 2px solid #ff4444 !important;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Form control spacing */
+  .form-section > div {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  /* Form switching animation */
+  .form-section {
+    transition: all 0.3s ease;
+  }
+  
+  .form-section:not(.active) {
+    display: none;
+  }

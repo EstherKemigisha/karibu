@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Add Produce
+    link(rel='stylesheet', href='/css/produce.css')
+  body
+    form.form#form(action="/addProduce" method="POST")
+      .form-container
+        .form-header
+          h2 Add Stock
+          button.close-button(type='button') &times;
+        .form-group
+          label(for='produce') Produce
+          select#produce(name='produce' required)
+            option(value='') Select Produce
+            option(value='maize') Maize
+            option(value='cowpeas') Cowpeas
+            option(value='beans') Beans
+            option(value='soybeans') Soybeans
+        .form-group
+          label(for='type') Type
+          select#type(name='type' required)
+            option(value='') Select Type
+            option(value='legume') Legume
+            option(value='cereal') Cereal
+        .form-group
+          label(for='tonnage') Tonnage (kgs)
+          input#tonnage(type='number', name='tonnage', required)
+        .form-group
+          label(for='buyingPrice') Buying Price (Ugx)
+          input#buyingPrice(type='number', name='buyingPrice', required)
+        .form-group
+          label(for='sellingPrice') Selling Price (Ugx)
+          input#sellingPrice(type='number', name='sellingPrice', required)
+        .form-group
+          label(for='branch') Branch
+          select#branch(name='branch' required)
+            option(value='') Select Branch
+            option(value='mattuga') Mattuga
+            option(value='maganjo') Maganjo
+        .form-group
+          label(for='dealers') Dealers
+          input#dealers(type='text', name='dealers', required)
+        .form-group
+          label(for='paymentmethod') Payment Method
+          select#paymentmethod(name='paymentmethod' required)
+            option(value='') Select Method
+            option(value='cash') Cash
+            option(value='mobilemoney') Mobile Money
+            option(value='banktransfer') Bank Transfer
+        .form-group
+          label(for='date') Date
+          input#date(type='date', name='date', required)
+        .form-group
+          label(for='time') Time
+          input#time(type='time', name='time', required)
+        button.submit-button(type='submit') Save
+    script(src='/js/produce.js')

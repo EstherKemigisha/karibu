@@ -1,0 +1,41 @@
+doctype html
+head
+  title  items Record
+  link(rel='stylesheet' href='/css/produce.css')
+.sales-form
+  h2 Stock Table
+  table#stockTable
+    thead
+      tr
+        th Produce
+        th Type
+        th Tonnage
+        th Buying Price
+        th Selling Price
+        th Branch
+        th Dealers 
+        th Payment Method
+        th Date 
+        th Time
+        th Update 
+        th Delete
+    tbody#stock-table
+          if produce.length
+            each item in produce
+                tr
+                    td #{item. produce}
+                    td #{item.type}
+                    td #{item.tonnage}
+                    td #{item.buyingPrice}
+                    td #{item.sellingPrice}
+                    td #{item.branch}
+                    th #{item.dealers}
+                    th #{item.paymentmethod}
+                    td #{moment(item.date).format("DD-MM-YY")}
+                    th #{item.time}
+                    td 
+                      a(href="/updateProduce/"+item._id) Update
+                    td 
+                      form(action="/deleteProduce" method="post")
+                         input(type="hidden" name="id" value=item._id)
+                         button.delete-button(type='submit') Delete

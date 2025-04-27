@@ -1,0 +1,43 @@
+doctype html
+head
+  title Credit List
+  link(rel='stylesheet' href='/css/credit2.css')
+.sales-form
+  h2 Credit Payment Records
+  table#creditssTable
+    thead
+      tr
+        th Buyer's name
+        th  National ID (NIN)
+        th Address
+        th  Contact (Valid)
+        th Amount-Due (UgX)
+        th Tonnage
+        th Sales Agent Name
+        th Produce Name
+        th Produce Type
+        th Amount
+        th Due Date
+        th Update 
+        th Delete
+    tbody#credit-table
+          if credits.length
+            each credit in credits
+                tr
+                    td #{credit. buyersname}
+                    td #{credit.nationalid}
+                    td #{credit.address}
+                    td #{credit.contact}
+                    td #{credit.amountD}
+                    td #{credit.tonnage}
+                    td #{credit.salesagent}
+                    td #{credit.producename}
+                    td #{credit.producetype}
+                    td #{credit.amount}
+                    td #{moment(credit.duedate).format("DD-MM-YY")}
+                    td 
+                      a(href="/updateCredit/"+credit._id) Update
+                    td 
+                      form(action="/deleteCredit" method="post")
+                         input(type="hidden" name="id" value=credit._id)
+                         button.delete-button(type='submit') Delete

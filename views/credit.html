@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Request</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/public/css/deffered.css">
+</head>
+<body>
+    <div class="payment-request-container">
+        <h2>Credit Payment </h2>
+        <div class="contact-details">
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <label for="sendTo">Buyer's Name</label>
+                <input type="text" id="name" value="">
+            </div>
+            <div class="form-group input-group">
+                <div>
+                    <i class="fas fa-id-card"></i>
+                    <label for="nationalid"> National ID (NIN)</label>
+                    <input type="text" id="nationalid" value="">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="">
+                </div>
+            </div>
+            <div class="form-group input-group">
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <label for="contact">Contact (Valid)</label>
+                    <input type="text" id="contact" value="">
+                </div>
+                <div>
+                    <i class="fas fa-money-bill-wave"></i>
+                    <label for="amountdue">Amount-Due (UgX)</label>
+                    <input type="text" id="amountdue" placeholder="">
+                </div>
+            </div>
+            <div class="form-group input-group">
+                <div>
+                    <i class="fas fa-weight-hanging"></i>
+                    <label for="tonnage">Tonnage</label>
+                    <input type="text" id="tonnage" value="">
+                </div>
+                <div>
+                    <i class="fas fa-user-tie"></i>
+                    <label for="salesagent">Sales Agent Name</label>
+                    <input type="text" id="salesagent" placeholder="">
+                </div>
+            </div>
+            <div class="form-group input-group">
+                <div>
+                    <i class="fas fa-carrot"></i>
+                    <label for="produce">Produce Name</label>
+                    <input type="text" id="produce" name="produce" list="produce-options" placeholder="Select or type produce">
+                    <datalist id="produce-options">
+                      <option value="Beans">
+                      <option value="Grain Maize">
+                      <option value="Cow Peas">
+                      <option value="G-nuts">
+                      <option value="Soybeans">
+                    </datalist>
+                  </div>
+                  
+                  <div>
+                    <i class="fas fa-leaf"></i>
+                    <label for="producetype">Produce Type</label>
+                    <input type="text" id="producetype" list="produce-types" placeholder="">
+                  </div>
+                  
+                  <datalist id="produce-types">
+                    <option value="Legume">
+                    <option value="Cereal">
+                    <option value="Grain">
+                    
+                    
+                  </datalist>
+            </div>
+        </div>
+
+        <div class="request-details">
+            <div class="form-group input-group">
+                <div>
+                    <i class="fas fa-coins"></i>
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" value="">
+                </div>
+                <div>
+                    <i class="fas fa-calendar-alt"></i>
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="cancel-button">Cancel</button>
+            <button class="request-payment-button">Save  Payment</button>
+        </div>
+    </div>
+
+    <script src="/public/js/deffered.js"></script>
+</body>
+</html>
+
+  
+ 

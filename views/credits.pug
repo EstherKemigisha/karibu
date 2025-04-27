@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Payment Request
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css')
+    link(rel='stylesheet' href='/css/credit.css')
+  body
+    form.form#form(action='/credit' method='POST')
+      .payment-request-container
+        h2 Credit Payment 
+        .contact-details
+          .input-container
+            i.fas.fa-user
+            label(for='sendTo') Buyer's Name
+            input#name(type='text' name='buyersname')
+          .form-group.input-group
+            div
+              i.fas.fa-id-card
+              label(for='nationalid') National ID (NIN)
+              input#nationalid(type='text' name='nationalid')
+            .input-container
+              i.fas.fa-map-marker-alt
+              label(for='address') Address
+              input#address(type='text' name='address')
+          .form-group.input-group
+            div
+              i.fas.fa-phone
+              label(for='contact') Contact
+              input#contact(type='text' name='contact')
+            div
+              i.fas.fa-money-bill-wave
+              label(for='amountdue') Amount Due (UgX)
+              input#amountdue(type='text' name='amountD')
+          .form-group.input-group
+            div
+              i.fas.fa-weight-hanging
+              label(for='tonnage') Tonnage
+              input#tonnage(type='text' name='tonnage')
+            div
+              i.fas.fa-user-tie
+              label(for='salesagent') Sales Agent Name
+              input#salesagent(type='text' name='salesagent')
+          .form-group.input-group
+            div
+              i.fas.fa-carrot
+              label(for='produce') Produce Name
+              input#produce(type='text' name='producename' list='produce-options')
+              datalist#produce-options
+                option(value='Beans')
+                option(value='Grain Maize')
+                option(value='Cow Peas')
+                option(value='G-nuts')
+                option(value='Soybeans')
+            div
+              i.fas.fa-leaf
+              label(for='producetype') Produce Type
+              input#producetype(type='text' name='producetype' list='produce-types')
+              datalist#produce-types
+                option(value='Legume')
+                option(value='Cereal')
+                option(value='Grain')
+        .request-details
+          .form-group.input-group
+            div
+              i.fas.fa-coins
+              label(for='amount') Amount
+              input#amount(type='number' name='amount')
+            div
+              i.fas.fa-calendar-alt
+              label(for='dueDate') Due Date
+              input#dueDate(type='date' name='duedate')
+        .buttons
+          button.cancel-button(type='button') Cancel
+          button.request-payment-button(type='submit') Save Payment
+  script(src='/js/credits.js')       

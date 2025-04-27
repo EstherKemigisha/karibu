@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produce Sales Record</title>
+    <link rel="stylesheet" href="/public/css/sales.css">
+</head>
+<body>
+    
+    <div class="sales-form">
+        <h2>Record Sales</h2>
+        <form id="salesRecordForm">
+            <label for="produceName">Produce Name:</label>
+            <input type="text" id="produceName" name="produceName" required>
+
+            <label for="tonnage">Tonnage (kgs):</label>
+            <input type="number" id="tonnage" name="tonnage" required>
+
+            <label for="amountPaid">Amount Paid (UgX):</label>
+            <input type="number" id="amountPaid" name="amountPaid" required>
+            <div id="amountPaidError" class="error"></div>
+
+            <label for="buyerName">Buyer's Name(UgX):</label>
+            <input type="text" id="buyerName" name="buyerName" required>
+            <div id="buyerNameError" class="error"></div>
+
+            <label for="salesAgentName">Sales Agent's Name(UgX):</label>
+            <input type="text" id="salesAgentName" name="salesAgentName" required>
+            <div id="salesAgentNameError" class="error"></div>
+
+            <label for="dateTime">Date and Time:</label>
+            <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <table id="salesTable">
+        <thead>
+            <tr>
+                <th>Produce</th>
+                <th>Tonnage (kgs)</th>
+                <th>Amount (UGX)</th>
+                <th>Buyer</th>
+                <th>Agent</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="/public/js/sales.js"></script>
+</body>
+</html>

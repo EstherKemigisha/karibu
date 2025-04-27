@@ -1,0 +1,71 @@
+/* Reset margin and padding for body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background for better readability */
+}
+
+/* Styling the container */
+.sales-form {
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    top: 0;
+}
+
+/* Styling the table */
+table#creditssTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0; /* Ensures the table starts at the top */
+}
+
+/* Header row styles */
+table#creditssTable thead tr th {
+    background-color: #071338;  /* Header background color */
+    color: #f3ba36; /* Header text color */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Body row styles */
+table#creditssTable tbody tr td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Alternating row colors */
+table#creditssTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Highlight on hover */
+table#creditssTable tbody tr:hover {
+    background-color: #e8f4ff;
+}
+
+/* Styling Update and Delete buttons */
+button.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #2196F3; /* Link color */
+    font-weight: bold;
+}
+
+button.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}

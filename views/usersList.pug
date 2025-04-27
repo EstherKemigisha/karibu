@@ -1,0 +1,32 @@
+doctype html
+head
+  title  Sales Record
+  link(rel='stylesheet' href='/css/sale2.css')
+.sales-form
+  h2 Users List
+  table#salesTable
+    thead
+      tr
+        th First Name
+        th Last Name
+        th Email
+        th Role
+        th Branch
+        th Update
+        th Delete 
+    tbody#stock-table
+          if users.length
+            each user in users
+                tr
+                    td #{user. fname}
+                    td #{user.lname}
+                    td #{user.email}
+                    td #{user.role}
+                    td #{user.branch}
+                    td
+                      a(href="/updateUser/"+user._id, class="update-link") Update
+                    td 
+                      form(action="/deleteUser" method="post")
+                         input(type="hidden" name="id" value=user._id)
+                         button.delete-button(type='submit') Delete
+script(src='/js/sales.js')

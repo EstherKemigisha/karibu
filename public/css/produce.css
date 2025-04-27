@@ -1,0 +1,292 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #162938;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #f6cd49;
+    width: 460px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+.form-group input {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #34495e;
+    color: #fff;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #34495e;
+    color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.submit-button {
+    background-color: #f6cd49;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 80%;
+    box-sizing: border-box;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.submit-button:hover {
+    background-color: white;
+}
+
+/* //stock table */
+/* sale2.css */
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.sales-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+}
+
+.sales-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#stockTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden; /* To contain the border-radius of the table */
+}
+
+#stockTable thead th {
+    background-color: #162938;
+    color: white;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+#stockTable tbody tr {
+    background-color: #f9f9f9;
+}
+
+#stockTable tbody tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+#stockTable tbody td,
+#stockTable tbody th {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.85em;
+}
+
+#stockTable tbody th {
+    font-weight: normal;
+}
+
+#stockTable tbody tr:last-child td,
+#stockTable tbody tr:last-child th {
+    border-bottom: none;
+}
+
+#stockTable tbody td a {
+    color: #28a745;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#stockTable tbody td a:hover {
+    color: #1e7e34;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sales-form {
+        padding: 20px;
+    }
+
+    #stockTable thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    #stockTable tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+    }
+
+    #stockTable tbody td,
+    #stockTable tbody th {
+        display: flex;
+        padding-left: 50%;
+        text-align: left;
+        position: relative;
+        border-bottom: none;
+    }
+
+    #stockTable tbody td::before,
+    #stockTable tbody th::before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+        font-size: 0.85em;
+    }
+
+    #stockTable tbody td[data-label="Update"],
+    #stockTable tbody td[data-label="Delete"] {
+        display: block;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    #stockTable tbody td[data-label="Update"] a {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+}
+
+/* Style for the "Update" button */
+#stockTable tbody td form button.update-button {
+    background-color: #007bff; /* A nice blue color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    text-decoration: none; /* Remove any link styling if it was an <a> tag before */
+    transition: background-color 0.3s ease;
+}
+
+#stockTable tbody td form button.update-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Adjust spacing around the button */
+#stockTable tbody td form {
+    margin-bottom: 0; /* Remove default form margin that might add extra space */
+}
+
+/* Responsive adjustments for the update button */
+@media (max-width: 768px) {
+    #stockTable tbody td[data-label="Update"] form button.update-button {
+        display: block; /* Make the button take full width on smaller screens */
+        width: 100%;
+        margin-bottom: 5px; /* Add a little space below the button */
+    }
+}
+
+.error-highlight {
+    border: 2px solid #ff4444 !important;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: 5px;
+    padding: 3px;
+  }
+

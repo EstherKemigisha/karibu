@@ -1,0 +1,55 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+  link(rel='stylesheet' href='/css/salesAgentdash.css')
+.sidebar
+  h2.heading(style='color: #f3ba36;') Karibu Sales Maganjo
+  a(href='/')
+    i.fa-solid.fa-house
+    | Home
+  br
+  a(href='/addSale')
+    i.fas.fa-cash-register
+    | Sales
+  br
+  a(href='/salesList')
+    i.fas.fa-clipboard-list
+    | Sales List
+  br
+  a(href='/credit')
+    i.fas.fa-credit-card
+    | Credits Payment
+  br
+  a(href='/creditList')
+    i.fas.fa-list-alt
+    | Credit List
+  br
+  a(href='/logout')
+    i.fa-solid.fa-right-from-bracket
+    | Logout
+  br
+  a(href='/')
+    i.fas.fa-arrow-left
+    | Back
+.dashboard-content
+  h1.sale Sales Dashboard
+  .dashboard-grid
+    .dashboard-item
+      h2.h2 Total Sales
+      p#totalSales 100
+    .dashboard-item
+      h2.h2 Today&apos;s Sales
+      p#todaysSales 30
+    .dashboard-item
+      h2.h2 Average Sale
+      p#averageSale 45
+    .dashboard-item
+      h2.h2 Items Sold
+      p#totalItemsSold 40
+  div
+    canvas#myChart(style='width:100%;max-width:600px')
+  script(src='/js/salesAgentdash.js')

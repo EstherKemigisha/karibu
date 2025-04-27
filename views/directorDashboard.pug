@@ -1,0 +1,63 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+  link(rel='stylesheet' href='/css/directordash.css')
+.sidebar
+  h2(style='color: #f3ba36;') Director
+  ul
+    li
+      a(href='/')
+        i.fa-solid.fa-house
+        | Home
+    br
+    li
+      a(href='/addSale')
+        i.fa-brands.fa-salesforce 
+        |SalesList 
+    br
+    li
+      a(href='/addSale')
+        i.fa-brands.fa-salesforce 
+        | Add Sales 
+    br
+    li
+      a(href='/logout')
+        i.fa-solid.fa-right-from-bracket
+        | Logout
+    br
+.dashboard-container
+  .dashboard
+    .dashboard-header
+      h1 Sales Overview
+    .dashboard-grid
+      .dashboard-item
+        h3 Total Sales
+        p#totalSales #{ totalRevenue.totalsale}
+      .dashboard-item
+        h3 Average Daily Sales
+        p#averageDailySales $5600
+      .dashboard-item
+        h3 Highest Branch Sales
+        p#highestBranchSales $8000
+        p#highestBranchName Mattuga
+      .dashboard-item
+        h3 Lowest Branch Sales
+        p#lowestBranchSales $3500
+        p#lowestBranchName Maganjo
+  table
+    thead
+      tr
+        th Branch Name
+        th Total Sales
+        th Period
+    tbody#salesTableBody
+    tfoot
+      tr
+        td Total Sales
+        td#tableTotalSales $20000
+        td March 2025
+  .arrow-down &darr;
+script(src='/js/directordash.js')

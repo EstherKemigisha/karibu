@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Dashboard</title>
+    <link rel="stylesheet" href="/public/css/managerdash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> </head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            
+            <div class="logo" style="color: #45a049;;">Admin</div>
+            <div class="profile">
+                <img src="/public/imgs/mm.jpg" alt="Profile" class="profile-img">
+            </div>
+            <nav>
+                <a href="#"><i class="fa-solid fa-house"></i>Home</a><br>
+                <a href="#"><i class="fa-solid fa-users"></i>Users</a><br>
+                <a href="#"><i class="fa-brands fa-salesforce"></i>Sales</a><br>
+                <a href="#"><i class="fa-solid fa-sheet-plastic"></i>Reports</a><br>
+                <a href="#"><i class="fa-solid fa-gear"></i>Setting</a><br>
+                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a><br>
+            </nav>
+        </aside>
+        <main class="content">
+            <header class="header">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="user-actions">
+                    <button>A</button>
+                </div>
+            </header>
+            <section class="overview">
+                <div class="card products">
+                    <div class="card-title">PRODUCTS</div>
+                    <div class="card-value">249</div>
+                </div>
+                <div class="card categories">
+                    <div class="card-title">SALES</div>
+                    <div class="card-value">25</div>
+                </div>
+                <div class="card customers">
+                    <div class="card-title">IN STOCK</div>
+                    <div class="card-value">1500</div>
+                </div>
+                <div class="card alerts">
+                    <div class="card-title">OUT OF STOCK</div>
+                    <div class="card-value">56</div>
+                </div>
+            </section>
+            <section class="charts">
+                <div class="chart-container top-products">
+                    <h2>Top 5 Products</h2>
+                    <canvas id="topProductsChart"></canvas>
+                </div>
+                <div class="chart-container sales-orders">
+                    <h2>Sales overview</h2>
+                    <canvas id="myChart" style="width:60%;max-width:240px"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/public/js/managerdash.js"></script>
+</body>
+</html>

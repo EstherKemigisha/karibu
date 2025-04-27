@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Produce Sales Record
+    link(rel='stylesheet' href='/css/sales.css')
+  body
+    .sales-form
+      h2 Record Sales
+      form#salesRecordForm(action='/addSale' method='POST')
+        label(for='produceName') Produce Name
+        select#produceName(name='produceName' required)
+          option(value='') Select Produce
+          option(value='beans') Beans
+          option(value='cowpeas') Cowpeas
+          option(value='soybeans') Soy beans
+          option(value='groundnuts') Ground nuts  
+        label(for='tonnage') Tonnage (kgs):
+        input#tonnage(type='number' name='tonnage' required)
+        label(for='pricePerkg') Price per kg
+        input#pricePerkg(type='number' name='pricePerkg')
+        label(for='amountPaid') Amount Paid (UgX):
+        input#amountPaid(type='number' name='amountPaid' required)
+        label(for='quantitysold') Quantity Sold
+        input#quantitysold(type='number' name='qsold')
+        label(for='buyerName') Buyer's Name:
+        input#buyerName(type='text' name='buyerName' required)
+        label(for='salesAgentName') Sales Agent's Name:
+        input#salesAgentName(type='text' name='salesAgentName' required)
+        label(for='dateTime') Date and Time:
+        input#dateTime(type='datetime-local' name='dateTime' required)
+        button(type='submit') Submit
+
+    script(src='/js/sales.js')
