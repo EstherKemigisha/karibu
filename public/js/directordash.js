@@ -1,5 +1,5 @@
-// Simulate user authentication (replace with actual authentication)
-const loggedInUser = "Mr. Orban"; // Only Mr. Orban can see the dashboard
+
+const loggedInUser = "Mr. Orban"; 
 
 if (loggedInUser === "Mr. Orban") {
     const salesData = {
@@ -50,7 +50,7 @@ if (loggedInUser === "Mr. Orban") {
 
     function populateTable(branchTotals) {
         const tableBody = document.getElementById("salesTableBody");
-        tableBody.innerHTML = ""; // Clear existing rows
+        tableBody.innerHTML = ""; 
         let tableTotal = 0;
 
         for (const branch in branchTotals) {
@@ -71,6 +71,6 @@ if (loggedInUser === "Mr. Orban") {
 
     calculateSales();
 } else {
-    // Redirect or show an error message if the user is not authorized
+   
     document.body.innerHTML = "<h1>Access Denied</h1><p>You are not authorized to view this page.</p>";
 }

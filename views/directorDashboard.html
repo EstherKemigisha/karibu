@@ -1,76 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/css/directordash.css">
+    <title>Director Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/css/directordash.css">
 </head>
-
 <body>
-
-    <div class="sidebar">
-        <h2 class="dir">Director</h2>
-        <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li><br>
-            <li><a href="#"><i class="fa-brands fa-salesforce">Sales Overview</a></li><br>
-            <li><a href="#"><i class="fa-solid fa-users"></i>Users</a></li><br>
-            <li><a href="#"><i class="fa-solid fa-sheet-plastic"></i>Reports</a></li><br>
-            href="#"><i class="fa-solid fa-gear"></i>Settings</a><br>
-            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li><br>
-        </ul>
-    </div>
-    <div class="dashboard-container">
-        <div class="dashboard">
-            <div class="dashboard-header">
-                <h1>Sales Overview</h1>
+    <div class="page-wrapper">
+        <div class="main-content">
+            <div class="sidebar">
+                <h2 style="color: #f3ba36;">Director</h2>
+                <ul>
+                    <li>
+                        <a href="/">
+                            <i class="fa-solid fa-house"></i> Home
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="/addSale">
+                            <i class="fa-brands fa-salesforce"></i> Sales List
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="/addSale">
+                            <i class="fa-brands fa-salesforce"></i> Add Sales
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="/logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> Logout
+                        </a>
+                    </li>
+                    <br>
+                </ul>
             </div>
-            <div class="dashboard-grid">
-                <div class="dashboard-item">
-                    <h3>Total Sales</h3>
-                    <p id="totalSales">$20000</p>
-                </div>
-                <div class="dashboard-item">
-                    <h3>Average Daily Sales</h3>
-                    <p id="averageDailySales">$5600</p>
-                </div>
-                <div class="dashboard-item">
-                    <h3>Highest Branch Sales</h3>
-                    <p id="highestBranchSales">$8000</p>
-                    <p id="highestBranchName">Mattuga</p>
-                </div>
-                <div class="dashboard-item">
-                    <h3>Lowest Branch Sales</h3>
-                    <p id="lowestBranchSales">$3500</p>
-                    <p id="lowestBranchName">Maganjo</p>
+
+            <div class="dashboard-container">
+                <div class="dashboard">
+                    <div class="dashboard-header">
+                        <h1>Sales Overview</h1>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-item">
+                            <h3>Total Sales</h3>
+                            <p id="totalSales">totalRevenue.totalsale</p>
+                        </div>
+                        <div class="dashboard-item">
+                            <h3>Average Daily Sales</h3>
+                            <p id="averageDailySales">$5600</p>
+                        </div>
+                        <div class="dashboard-item">
+                            <h3>Highest Branch Sales</h3>
+                            <p id="highestBranchSales">$8000</p>
+                            <p id="highestBranchName">Mattuga</p>
+                        </div>
+                        <div class="dashboard-item">
+                            <h3>Lowest Branch Sales</h3>
+                            <p id="lowestBranchSales">$3500</p>
+                            <p id="lowestBranchName">Maganjo</p>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Branch Name</th>
+                                <th>Total Sales</th>
+                                <th>Period</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total Sales</td>
+                                <td id="tableTotalSales">$20000</td>
+                                <td>March 2025</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="arrow-down">↓</div>
                 </div>
             </div>
         </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Branch Name</th>
-                    <th>Total Sales</th>
-                    <th>Period</th>
-                </tr>
-            </thead>
-            <tbody id="salesTableBody">
-                </tbody>
-            <tfoot>
-                <tr>
-                    <td>Total Sales</td>
-                    <td id="tableTotalSales">$20000</td>
-                    <td>March 2025</td>
-                </tr>
-            </tfoot>
-        </table>
-
-        <div class="arrow-down">&#8595;</div>
+        <footer>
+            <p>Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.</p>
+        </footer>
     </div>
 
-<script src="/public/js/directordash.js"></script>
-    </body>
-
+    <script src="/js/directordash.js"></script>
+</body>
 </html>

@@ -1,69 +1,98 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Store Dashboard
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
-  link(rel='stylesheet' href='/css/managerdash.css')
-  script(src='https://cdn.jsdelivr.net/npm/chart.js')
-.dashboard
-  aside.sidebar
-    .logo(style='color:  #f3ba36;') Manager Maganjo
-    .profile
-      img.profile-img(src='/imgs/mm.jpg' alt='Profile')
-    nav
-      // <a href="#" class="active">Dashboard</a>
-      a(href='/')
-        i.fa-solid.fa-house
-        | Home
-      br
-      a(href='/addProduce')
-        i.fas.fa-boxes
-        | Procurement
-      br
-      a(href='/produceList')
-        i.fas.fa-clipboard-list
-        | Produce List
-      br
-      a(href='/addSale')
-        i.fas.fa-cash-register
-        | Sales
-      br
-      
-      a(href='/salesList')
-        i.fas.fa-clipboard-list
-        | Sales List
-      br
-      a(href='/logout')
-        i.fa-solid.fa-right-from-bracket
-        | Logout
-      br
-      a(href='/')
-        i.fas.fa-arrow-left
-        | Back
-  main.content
-    header.header
-      input.search-bar(type='text' placeholder='Search...')
-      .user-actions
-        button A
-    section.overview
-      .card.products
-        .card-title PRODUCTS
-        .card-value.cardi 249
-      .card.categories
-        .card-title SALES
-        .card-value.cardi 25
-      .card.customers
-        .card-title IN STOCK
-        .card-value.cardi 1500
-      .card.alerts
-        .card-title OUT OF STOCK
-        .card-value.cardi 56
-    section.charts
-      .chart-container.top-products
-        h2 Top 5 Products
-        canvas#topProductsChart
-      .chart-container.sales-orders
-        h2 Sales overview
-        canvas#myChart(style='width:60%;max-width:240px')
-script(src='/js/managerdash.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Store Dashboard
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    link(rel='stylesheet' href='/css/managerdash.css')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+  body
+    .page-wrapper
+      .dashboard
+        aside.sidebar
+          .logo(style='color: #f3ba36;') Manager Maganjo
+          .profile
+            img.profile-img(src='/imgs/mm.jpg' alt='Profile')
+          nav
+            a(href='/')
+              i.fa-solid.fa-house
+              | Home
+            br
+            a(href='/addProduce')
+              i.fas.fa-boxes
+              | Procurement
+            br
+            a(href='/produceList')
+              i.fas.fa-clipboard-list
+              | Produce List
+            br
+            a(href='/addSale')
+              i.fas.fa-cash-register
+              | Sales
+            br
+            a(href='/salesList')
+              i.fas.fa-clipboard-list
+              | Sales List
+            br
+            a(href='/logout')
+              i.fa-solid.fa-right-from-bracket
+              | Logout
+            br
+            a(href='/')
+              i.fas.fa-arrow-left
+              | Back
+        main.content
+          section.overview
+            .card.products
+              .card-title PRODUCTS
+              .card-value.cardi 249
+            .card.categories
+              .card-title SALES
+              .card-value.cardi 25
+            .card.customers
+              .card-title IN STOCK
+              .card-value.cardi 1500
+            .card.alerts
+              .card-title OUT OF STOCK
+              .card-value.cardi 56
+
+          section.performance-highlights
+            .highlight-card
+              h2 Top Selling Products
+              .product-list
+                .product-item
+                  .product-name Beans
+                  .product-revenue 30m UGX
+                .product-item
+                  .product-name Groundnuts
+                  .product-revenue 45m UGX
+                .product-item
+                  .product-name Maize
+                  .product-revenue 20m UGX
+
+            .highlight-card
+              h2 Top Sellers By Order Count
+              .seller-list
+                .seller-item
+                  .seller-name Elly Mukisa
+                  .order-count 15 orders
+                .seller-item
+                  .seller-name Joy Tendo
+                  .order-count 12 orders
+
+            .highlight-card
+              h2 Customers By Purchases
+              .customer-list
+                .customer-item
+                  .customer-name Shelby Goode
+                  .purchase-count 8 purchases
+                .customer-item
+                  .customer-name Robert Bacins
+                  .purchase-count 6 purchases
+                .customer-item
+                  .customer-name John Carlo
+                  .purchase-count 5 purchases
+    footer.dashboard-footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    script(src='/js/managerdash.js')

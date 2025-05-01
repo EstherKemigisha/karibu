@@ -11,15 +11,19 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
     text-align: center;
     justify-content: center; 
+    
 }
 
 .content {
-    background-color:  #141414; 
+    background-color:  #141414e2; 
     padding: 50px;
     border-radius: 600px;
     box-shadow: 0 4px 8px rgba(241, 220, 28, 0.3);
@@ -97,3 +101,41 @@ p {
     padding-left: 250px;
     border-radius: 90px;
   }
+
+  .footer {
+    background-color: #f8f9fa; /* light gray background */
+    padding: 10px; /* top and bottom padding */
+    text-align: center; /* center the text */
+    
+}
+  
+  .footer .container {
+    max-width: 1200px;
+    margin: 0 auto; /* center the container */
+    padding: 0 15px; /* small side padding */
+  }
+  
+  .footer p {
+    color: #6c757d; /* muted dark gray text */
+    font-size: 14px;
+    margin: 0;
+  }
+  
+.main-content {
+  flex: 1;
+}
+.footer {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Ensure full width */
+  position: relative; /* Prevent weird overlaps */
+  bottom: 0;
+  left: 0;
+}
+
+.footer p {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+}

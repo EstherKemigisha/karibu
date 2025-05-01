@@ -1,55 +1,96 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
-  link(rel='stylesheet' href='/css/salesAgentdash.css')
-.sidebar
-  h2.heading(style='color: #f3ba36;') Karibu Sales Mattuga
-  a(href='/')
-    i.fa-solid.fa-house
-    | Home
-  br
-  a(href='/addSale')
-    i.fas.fa-cash-register
-    | Sales
-  br
-  a(href='/salesList')
-    i.fas.fa-clipboard-list
-    | Sales List
-  br
-  a(href='/credit')
-    i.fas.fa-credit-card
-    | Credits Payment
-  br
-  a(href='/creditList')
-    i.fas.fa-list-alt
-    | Credit List
-  br
-  a(href='/logout')
-    i.fa-solid.fa-right-from-bracket
-    | Logout
-  br
-  a(href='/')
-    i.fas.fa-arrow-left
-    | Back
-.dashboard-content
-  h1.sale Sales Dashboard
-  .dashboard-grid
-    .dashboard-item
-      h2.h2 Total Sales
-      p#totalSales 100
-    .dashboard-item
-      h2.h2 Today&apos;s Sales
-      p#todaysSales 30
-    .dashboard-item
-      h2.h2 Average Sale
-      p#averageSale 45
-    .dashboard-item
-      h2.h2  Items Sold
-      p#totalItemsSold 40
-  div
-    canvas#myChart(style='width:100%;max-width:600px')
-  script(src='/js/salesAgentdash.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Document
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    link(rel='stylesheet' href='/css/salesAgentdash.css')
+  body
+    .sidebar
+      h3.heading(style='color: #f3ba36;') Karibu Sales Mattuga
+      a(href='/')
+        i.fa-solid.fa-house
+        |  Home
+      br
+      a(href='/addSale')
+        i.fas.fa-cash-register
+        |  Sales
+      br
+      a(href='/salesList')
+        i.fas.fa-clipboard-list
+        |  Sales List
+      br
+      a(href='/credit')
+        i.fas.fa-credit-card
+        |  Credits Payment
+      br
+      a(href='/creditList')
+        i.fas.fa-list-alt
+        |  Credit List
+      br
+      a(href='/logout')
+        i.fa-solid.fa-right-from-bracket
+        |  Logout
+      br
+      a(href='/')
+        i.fas.fa-arrow-left
+        |  Back
+      br
+    .dashboard-content
+      h1.sale Sales Dashboard
+      .dashboard-cards
+        .dashboard-item
+          h2.h2 Total Sales
+          p.Sales UGX 1,300,000
+        .dashboard-item
+          h2.h2 Today's Sales
+          p.Sales UGX 300,000
+        .dashboard-item
+          h2.h2 Average Sale
+          p.Sales UGX 45,000
+        .dashboard-item
+          h2.h2 Items Sold
+          p.Sales 138
+      .finance-table
+        h2 Recent Transactions
+        table
+          thead
+            tr
+              th Date
+              th Transaction Type
+              th Description
+              th Amount
+              th Category
+              
+          tbody
+            tr
+              td 2025-04-25
+              td Income
+              td Bulk Sales - Kampala Market
+              td UGX 500,000
+              td Sales
+              
+            tr
+              td 2025-04-24
+              td Expense
+              td Delivery Fuel
+              td UGX 120,000
+              td Transport
+              
+         
+             
+            tr
+              td 2025-04-22
+              td Expense
+              td Inventory Restock
+              td UGX 650,000
+              td Inventory
+    
+    footer
+      //- .footer-content
+      //-   .footer-logo Karibu Sales
+      .copyright
+        | Kemigisha Esther © 2025 Karibu Sales Maganjo. All rights reserved.
+

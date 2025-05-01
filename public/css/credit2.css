@@ -23,7 +23,7 @@ table#creditssTable {
 
 /* Header row styles */
 table#creditssTable thead tr th {
-    background-color: #071338;  /* Header background color */
+    background-color: #162938;  /* Header background color */
     color: #f3ba36; /* Header text color */
     padding: 10px;
     text-align: left;
@@ -68,4 +68,32 @@ button.delete-button:hover {
 h2 {
     margin-bottom: 20px;
     color: #333;
+}
+/* Ensure full height layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Flex column layout */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Make the main content grow */
+.sales-form {
+    flex: 1;
+}
+
+/* Footer styles */
+.page-footer {
+    background-color:#162938;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
 }

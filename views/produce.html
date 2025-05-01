@@ -1,78 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/css/produce.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Produce</title>
+  <link rel="stylesheet" href="/css/produce.css">
 </head>
 <body>
+  <form class="form" id="form" action="/addProduce" method="POST">
     <div class="form-container">
-        <div class="form-header">
-            <h2 style="align-items: center;">Add Stock</h2>
-            <button class="close-button">&times;</button>
-        </div>
-        <div class="form-group">
-            <label for="produce">Produce</label>
-            <select id="produce" name="produce">
-                <option value="">Select Produce</option>
-                <option value="maize">Maize</option>
-                <option value="cowpeas">Cowpeas</option>
-                <option value="beans">Beans</option>
-                <option value="soybeans">Soybeans</option>
-                </select>
-        </div>
-        <div class="form-group">
-            <label for="type">Type</label>
-            <select id="type" name="type">
-                <option value="">Select Type</option>
-                <option value="legume">legume</option>
-                <option value="cereal">Cereal</option>
-                </select>
-        </div>
-        <div class="form-group">
-            <label for="tonnage">Tonnage (kgs)</label>
-            <input type="number" id="tonnage" name="tonnage">
-        </div>
-        <div class="form-group">
-            <label for="buyingPrice">Buying Price (Ugx)</label>
-            <input type="number" id="buyingPrice" name="buyingPrice">
-        </div>
-        <div class="form-group">
-            <label for="sellingPrice">Selling Price (Ugx)</label>
-            <input type="number" id="sellingPrice" name="sellingPrice">
-        </div>
-        <div class="form-group">
-            <label for="branch">Branch</label>
-            <select id="branch" name="branch">
-                <option value="">Select Branch</option>
-                <option value="mattuga">Mattuga</option>
-                <option value="maganjo">Maganjo</option>
-                </select>
-        </div>
-        <div class="form-group">
-            <label for="dealers">Dealers</label>
-            <input type="text" id="dealers" name="dealers">
-        </div>
-        <div class="form-group">
-            <label for="paymentmethod">Payment method</label>
-            <select id="paymentmethod" name="paymentmethod">
-                <option value="">Payment Method</option>
-                <option value="cash">Cash</option>
-                <option value="mobilemoney">Mobile Money</option>
-                <option value="banktransfer">Bank Transfer</option>
-                </select>
-            </div>
-        <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date">
-        </div>
-        <div class="form-group">
-            <label for="time">Time</label>
-            <input type="time" id="time" name="time">
-        </div>
-        <button type="submit" class="submit-button">Save</button>
+      <div class="form-header">
+        <h2>Add Stock</h2>
+        <button class="close-button" type="button">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <label for="produce">Produce</label>
+        <select id="produce" name="produce" required>
+          <option value="">Select Produce</option>
+          <option value="maize">Maize</option>
+          <option value="cowpeas">Cowpeas</option>
+          <option value="beans">Beans</option>
+          <option value="soybeans">Soybeans</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select id="type" name="type" required>
+          <option value="">Select Type</option>
+          <option value="legume">Legume</option>
+          <option value="cereal">Cereal</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="tonnage">Tonnage (kgs)</label>
+        <input id="tonnage" type="number" name="tonnage" required>
+      </div>
+
+      <div class="form-group">
+        <label for="buyingPrice">Buying Price (Ugx)</label>
+        <input id="buyingPrice" type="number" name="buyingPrice" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sellingPrice">Selling Price (Ugx)</label>
+        <input id="sellingPrice" type="number" name="sellingPrice" required>
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select Branch</option>
+          <option value="mattuga">Mattuga</option>
+          <option value="maganjo">Maganjo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dealers">Dealers</label>
+        <input id="dealers" type="text" name="dealers" required>
+      </div>
+
+      <div class="form-group">
+        <label for="paymentmethod">Payment Method</label>
+        <select id="paymentmethod" name="paymentmethod" required>
+          <option value="">Select Method</option>
+          <option value="cash">Cash</option>
+          <option value="mobilemoney">Mobile Money</option>
+          <option value="banktransfer">Bank Transfer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" type="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input id="time" type="time" name="time" required>
+      </div>
+
+      <button class="submit-button" type="submit">Save</button>
     </div>
-    <script src="/public/js/produce.js"></script>
+  </form>
+
+  <footer class="page-footer">
+    <p>Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/produce.js"></script>
 </body>
 </html>

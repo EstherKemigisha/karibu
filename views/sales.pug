@@ -4,30 +4,46 @@ html
     title Produce Sales Record
     link(rel='stylesheet' href='/css/sales.css')
   body
-    .sales-form
-      h2 Record Sales
-      form#salesRecordForm(action='/addSale' method='POST')
-        label(for='produceName') Produce Name
-        select#produceName(name='produceName' required)
-          option(value='') Select Produce
-          option(value='beans') Beans
-          option(value='cowpeas') Cowpeas
-          option(value='soybeans') Soy beans
-          option(value='groundnuts') Ground nuts  
-        label(for='tonnage') Tonnage (kgs):
-        input#tonnage(type='number' name='tonnage' required)
-        label(for='pricePerkg') Price per kg
-        input#pricePerkg(type='number' name='pricePerkg')
-        label(for='amountPaid') Amount Paid (UgX):
-        input#amountPaid(type='number' name='amountPaid' required)
-        label(for='quantitysold') Quantity Sold
-        input#quantitysold(type='number' name='qsold')
-        label(for='buyerName') Buyer's Name:
-        input#buyerName(type='text' name='buyerName' required)
-        label(for='salesAgentName') Sales Agent's Name:
-        input#salesAgentName(type='text' name='salesAgentName' required)
-        label(for='dateTime') Date and Time:
-        input#dateTime(type='datetime-local' name='dateTime' required)
-        button(type='submit') Submit
+    .page-wrapper
+      .sales-form
+        h2 Record Sales
+        form#salesRecordForm(action='/addSale/${produce._id}' method='POST')
+          .form-group
+            label(for='produceName') Produce Name
+            select#produceName(name='produceName')
+              option(value='') Select Produce
+              option(value=produce._id) #{produce.produceName} 
+          .form-group
+            label(for='tonnage') Tonnage (kgs):
+            input#tonnage(type='number' name='tonnage')
+          .form-group
+            label(for='pricePerkg') Price per kg
+            input#pricePerkg(type='number' name='pricePerkg')
+          .form-group
+            label(for='amountPaid') Amount Paid (UgX):
+            input#amountPaid(type='number' name='amountPaid')
+          .form-group
+            label(for='quantitysold') Quantity Sold
+            input#quantitysold(type='number' name='qsold')
+          .form-group
+            label(for='buyerName') Buyer's Name:
+            input#buyerName(type='text' name='buyerName')
+          // Part for Seller Selection
+          .form-group
+            label(for='seller') Seller:
+            select#seller(name='seller' required)
+              option(value='') Select Seller
+              if currentUser
+                 option(value=currentUser._id) #{currentUser.fullName} 
+              else
+                option(value='' disabled) No Sellers Available
+          // End of Seller Part
+          .form-group
+            label(for='dateTime') Date and Time:
+            input#dateTime(type='datetime-local' name='dateTime')
+          button(type='submit') Submit
+
+      footer
+        .copyright Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
     script(src='/js/sales.js')

@@ -1,34 +1,45 @@
 doctype html
-head
-  title  Sales Record
-  link(rel='stylesheet' href='/css/sale2.css')
-.sales-form
-  h2 Record Sales
-  table#salesTable
-    thead
-      tr
-        th Produce
-        th Tonnage (kgs)
-        th Amount (UGX)
-        th Buyer
-        th Agent
-        th Date/Time
-        th Update
-        th Delete 
-    tbody#stock-table
-          if sales.length
-            each sale in sales
+html
+  head
+    title Sales Record
+    link(rel='stylesheet' href='/css/sale2.css')
+  body 
+    .page-wrapper
+      .sales-form
+        h2 Record Sales
+        table#salesTable
+          thead
+            tr
+              th Produce Name
+              th Tonnage (kgs)
+              th Amount Paid (UGX)
+              th Quantity Sold
+              th Buyer Name
+              th Date/Time
+              td Seller
+              th Update
+              th Delete 
+          tbody#stock-table
+            if sales.length
+              each sale in sales
                 tr
-                    td #{sale. produceName}
-                    td #{sale.tonnage}
-                    td #{sale.amountPaid}
-                    td #{sale.buyerName}
-                    td #{sale.salesAgentName}
-                    td #{moment(sale.dateTime).format("DD-MM-YY")}
-                    td 
-                      a(href="/updateSale/"+sale._id, class="update-button") Update
-                    td 
-                      form(action="/deleteSale" method="post")
-                         input(type="hidden" name="id" value=sale._id)
-                         button.delete-button(type='submit') Delete
-script(src='/js/sales.js')
+                  td #{sale.produceName}
+                  td #{sale.tonnage}
+                  td #{sale.amountPaid}
+                  td #{sale.qsold}
+                  td #{sale.buyerName}
+                  td #{sale.salesAgentName}
+                  td #{moment(sale.dateTime).format("DD-MM-YY")}
+                  td #{sale.seller.fullname + ''}
+                  td 
+                    a(href="/updateSale/"+sale._id class="update-button") Update
+                  td 
+                    form(action="/deleteSale" method="post")
+                      input(type="hidden" name="id" value=sale._id)
+                      button.delete-button(type='submit') Delete
+              else
+                 tr
+                  td(colspan="2") No sales found
+    footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    script(src='/js/sales.js')

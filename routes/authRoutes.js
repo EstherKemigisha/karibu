@@ -1,10 +1,11 @@
-const express = require("express");
+const express = require("express");//used to create server and handle routing
 const router = express.Router();
-const passport = require("passport");
+const passport = require("passport");//handling user authentication
 
 // Import models
-const Signup = require("../models/Signup");
+const Signup = require("../models/Signup");//represents the user data w/c comes from the schema
 
+//rendering the signup page
 router.get("/signingup", (req, res) => {
   res.render("signup");
 });

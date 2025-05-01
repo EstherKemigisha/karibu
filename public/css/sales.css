@@ -1,37 +1,52 @@
+/* General Page Styles */
 body {
     background-color: #F0F0F0;
     color: #e0e0e0;
     font-family: sans-serif;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    padding-top: 20px; 
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 3px; */
+    margin: 0;
+    height: 100vh; /* Ensure full height of the page */
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    min-height: 80%; 
+    width: 100%;
+}
+
+/* Center the form */
 .sales-form {
     background-color: #162938;
     padding: 20px;
     border-radius: 8px;
-    box-shadow:   4px 2px 6px  #f6cd49;
+    box-shadow: 4px 2px 6px #f6cd49;
     width: 400px;
     border: 1px solid #333;
-    margin-bottom: 20px; /* Space between form and table */
+    margin-bottom: 20px; 
+    margin-top: 50px; 
 }
 
+/* Form Input/Label Styles */
 .sales-form label {
     display: block;
     margin-bottom: 5px;
     color: #bdbdbd;
 }
 
-.sales-form input, .sales-form select, .sales-form button {
+.sales-form input,
+.sales-form select,
+.sales-form button {
     width: calc(100% - 12px);
     padding: 8px;
     margin-bottom: 10px;
-    
     border-radius: 4px;
     box-sizing: border-box;
-    background-color:#162938;
+    background-color: #162938;
     color: #e0e0e0;
 }
 
@@ -56,20 +71,143 @@ body {
     margin-bottom: 10px;
 }
 
+/* Table Styles */
 #salesTable {
     width: 80%; /* Make the table wider */
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-#salesTable th, #salesTable td {
+#salesTable th,
+#salesTable td {
     border: 1px solid #424242;
     padding: 8px;
     text-align: left;
 }
 
 #salesTable th {
-    background-color:#f6cd49;
+    background-color: #f6cd49;
     color: black;
+}
+
+/* Footer Styles */
+footer {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: auto; 
+    width: 100%;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: black;
+}
+/* General Page Styles */
+body {
+    background-color: #F0F0F0;
+    color: #e0e0e0;
+    font-family: sans-serif;
+    margin: 0;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+/* Page Wrapper to ensure footer stays at the bottom */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start from top */
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Form Styles */
+.sales-form {
+    background-color: #162938;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 2px 6px #f6cd49;
+    width: 400px;
+    border: 1px solid #333;
+    margin-top: 50px; /* Add space from the top */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Form Input/Label Styles */
+.sales-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #bdbdbd;
+}
+
+.sales-form input,
+.sales-form select,
+.sales-form button {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #162938;
+    color: #e0e0e0;
+}
+
+.sales-form button {
+    background-color: #f6cd49;
+    color: #212121;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sales-form button:hover {
+    background-color: rgb(205, 247, 216);
+}
+
+/* Table Styles */
+#salesTable {
+    width: 80%; /* Make the table wider */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#salesTable th,
+#salesTable td {
+    border: 1px solid #424242;
+    padding: 8px;
+    text-align: left;
+}
+
+#salesTable th {
+    background-color: #f6cd49;
+    color: black;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #162938;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: auto; 
+    width: 100%;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
 }
 

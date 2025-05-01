@@ -1,56 +1,68 @@
-body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color:  #F0F0F0;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .logout-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 400px;
-    height: 200px;
-    
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.logout-button {
-    text-decoration: none; 
-  }
-  
-  .logout-button button {
-    padding: 10px 20px; 
-    background-color: #dc3545; 
-    color: white; 
-    border: none; 
-    border-radius: 5px;
-    cursor: pointer; 
-    font-size: 16px; 
-    transition: background-color 0.3s ease;
-     
-  }
-  
-  .logout-button button:hover {
-    background-color: #c82333;
-  }
-  
-  .logout-button button:focus {
-    outline: 2px solid #dc3545; 
-    outline-offset: 2px;
-  }
-  
- 
-  .logout-button button.full-width {
-    width: 100%;
-  }
+.logout-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
 
-#confirmation-message{
-  margin-top: 10px;
+.logout-container p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.logout-button button {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button button:hover {
+  background-color: #c62828;
+}
+
+#confirmation-message {
+  margin-top: 20px;
   color: green;
+  font-weight: bold;
   display: none;
+}
+
+footer.logout-footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #222;
+  color: #ccc;
+  font-size: 14px;
 }

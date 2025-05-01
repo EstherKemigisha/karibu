@@ -1,26 +1,80 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title  Welcome
-  link(rel='stylesheet' href='/css/index.css')
-.container
-  .content
-    .logo(style='align-content: center;')
-      img#img(src='/imgs/loogo.jpg' alt='Logo Description')
-    h2.h2 WELCOME TO KARIBU GROCERIES LTD
-    p
-      | We are dedicated to bringing you the finest selection of 
-      br
-      |                 cereals and grains.
-    p
-      | Explore our wide range of products, enjoy seamless service, and 
-      br
-      | experience the difference of a team that truly cares about your needs.
-    .button-container
-      a.sign-in-button(href='/signingup')
-        button Sign In
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-     title Welcome
+//-     link(rel='stylesheet' href='/css/index.css')
+  
+//-   body
+//-     .container
+//-       br
+//-       br
+//-       .content
+//-         .logo(style='align-content: center;')
+//-           img#img(src='/imgs/loogo.jpg' alt='Logo Description')
+//-         h2.h2 WELCOME TO KARIBU GROCERIES LTD
+//-         p
+//-           | We are dedicated to bringing you the finest selection of 
+//-           br
+//-           | cereals and grains.
+//-         p
+//-           | Explore our wide range of products, enjoy seamless service, and 
+//-           br
+//-           | experience the difference of a team that truly cares about your needs.
+//-         .button-container
+//-           a.sign-in-button(href='/signingup')
+//-             button Sign In
+//-           a.login-button(href='/login')
+//-             button Login
+      
+//-       br
+//-       br
+//-       br
+//-       br
+//-       .container
+//-         div.footer
+//-           p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+        
+//-     script(src='/js/index.js')
 
-      a.login-button(href='/login')
-         button Login
-script(src='/js/index.js')
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Welcome
+    link(rel='stylesheet' href='/css/index.css')
+
+  body
+    .main-content
+      .container
+        br
+        br
+        .content
+          .logo
+            img#img(src='/imgs/loogo.jpg' alt='Logo Description')
+          h2.h2 WELCOME TO KARIBU GROCERIES LTD
+          p
+            | We are dedicated to bringing you the finest selection of 
+            br
+            | cereals and grains.
+          p
+            | Explore our wide range of products, enjoy seamless service, and 
+            br
+            | experience the difference of a team that truly cares about your needs.
+          .button-container
+            a.sign-in-button(href='/signingup')
+              button Sign In
+            a.login-button(href='/login')
+              button Login
+
+    // 👇 Footer completely outside main-content
+    footer.footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+    script(src='/js/index.js')
+
+
+
+

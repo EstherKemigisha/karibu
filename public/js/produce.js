@@ -1,15 +1,15 @@
 document.getElementById('form').addEventListener('submit', function(event) {
-  // Clear previous errors
+  
   const errorMessages = document.querySelectorAll('.error-message');
   errorMessages.forEach(msg => msg.remove());
   
-  // Remove error highlights
+ 
   const errorFields = document.querySelectorAll('.error-highlight');
   errorFields.forEach(field => field.classList.remove('error-highlight'));
 
   let formIsValid = true;
 
-  // Validate required fields
+ 
   const requiredFields = [
     { id: 'produce', message: 'Please select a produce' },
     { id: 'type', message: 'Please select a type' },
@@ -31,7 +31,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
     }
   });
 
-  // Validate number fields
+ 
   const numberFields = ['tonnage', 'buyingPrice', 'sellingPrice'];
   numberFields.forEach(fieldId => {
     const input = document.getElementById(fieldId);
@@ -41,7 +41,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
     }
   });
 
-  // Validate prices
+
   const buyingPrice = parseFloat(document.getElementById('buyingPrice').value);
   const sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
   if (buyingPrice && sellingPrice && sellingPrice <= buyingPrice) {
@@ -56,15 +56,15 @@ document.getElementById('form').addEventListener('submit', function(event) {
 });
 
 function showError(input, message) {
-  // Highlight the field
+  
   input.classList.add('error-highlight');
   
-  // Create error message
+  
   const error = document.createElement('div');
   error.className = 'error-message';
   error.textContent = message;
   
-  // Insert after the input field
+  
   input.parentNode.insertBefore(error, input.nextSibling);
 }
   

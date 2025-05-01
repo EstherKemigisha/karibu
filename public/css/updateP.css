@@ -1,17 +1,28 @@
 /* Reset and layout */
-body {
-    font-family: sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    font-family: sans-serif;
     background-color: #f4f4f4;
+  }
+  
+  
+  body {
     display: flex;
     flex-direction: column;
+  }
+  
+  
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
   
+  /* Form */
   form.form {
-    flex: 1;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -28,8 +39,7 @@ body {
     width: 460px;
     box-sizing: border-box;
     position: relative;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
   
   /* Header section */
@@ -123,7 +133,4 @@ body {
     font-size: 14px;
     width: 100%;
   }
-
   
-  
-

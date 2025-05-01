@@ -1,29 +1,41 @@
 doctype html
-head
-  title Produce Sales Record
-  link(rel='stylesheet' href='/css/sales.css')
-.sales-form
-  h2 Record Sales
-  form#salesRecordForm(action='/updateSale?id='+sale._id method='post')
-    label(for='produceName') Produce Name
-    select#produceName(name='produceName' required='')
-      option(value='beans') Beans
-      option(value='cowpeas') Cowpeas
-      option(value='soybeans') Soy beans
-      option(value='groundnuts') Ground nuts 
-    label(for='tonnage') Tonnage (kgs):
-    input#tonnage(type='number' name='tonnage' required='')
-    label(for='amountPaid') Amount Paid (UgX):
-    input#amountPaid(type='number' name='amountPaid' required='')
-    #amountPaidError.error
-    label(for='buyerName') Buyers Name:
-    input#buyerName(type='text' name='buyerName' required='')
-    #buyerNameError.error
-    label(for='salesAgentName') Sales Agents Name:
-    input#salesAgentName(type='text' name='salesAgentName' required='')
-    #salesAgentNameError.error
-    label(for='dateTime') Date and Time:
-    input#dateTime(type='datetime-local' name='dateTime' required='')
-    button(type='submit') Update Sale
+html
+  head
+    title Produce Sales Record
+    link(rel='stylesheet' href='/css/sale.css')
+  body
+    .page-wrapper
+      .sales-form
+        h2 Record Sales
+        form#salesRecordForm(action='/updateSale?id=' + sale._id method='POST')
+          label(for='produceName') Produce Name
+          select#produceName(name='produceName')
+            option(value='beans') Beans
+            option(value='cowpeas') Cowpeas
+            option(value='soybeans') Soy beans
+            option(value='groundnuts') Ground nuts 
 
-script(src='/js/sales.js')
+          label(for='tonnage') Tonnage (kgs):
+          input#tonnage(type='number' name='tonnage')
+
+          label(for='amountPaid') Amount Paid (UgX):
+          input#amountPaid(type='number' name='amountPaid')
+          #amountPaidError.error
+
+          label(for='buyerName') Buyer's Name:
+          input#buyerName(type='text' name='buyerName')
+          #buyerNameError.error
+
+          label(for='salesAgentName') Sales Agent's Name:
+          input#salesAgentName(type='text' name='salesAgentName')
+          #salesAgentNameError.error
+
+          label(for='dateTime') Date and Time:
+          input#dateTime(type='datetime-local' name='dateTime')
+
+          button(type='submit') Update Sale
+
+      footer
+        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+    script(src='/js/sales.js')

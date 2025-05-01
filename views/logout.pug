@@ -1,13 +1,22 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Logout Form
-  link(rel='stylesheet' href='/css/logout.css')
-.logout-container
-  h2 Logout
-  p Are you sure you want to log out?
-  a.logout-button(href='/')
-         button Logout
-  p#confirmation-message Logged out successfully!
-  script(src="/js/logout.js")
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Logout Form
+    link(rel='stylesheet' href='/css/logout.css')
+  body
+    .page-wrapper
+      .content
+        .logout-container
+          h2 Logout
+          p Are you sure you want to log out?
+          a.logout-button(href='/')
+            button Logout
+          p#confirmation-message Logged out successfully!
+      footer.logout-footer
+        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    script(src="/js/logout.js")
+
+
+

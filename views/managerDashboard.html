@@ -1,65 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store Dashboard</title>
-    <link rel="stylesheet" href="/public/css/managerdash.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/css/managerdash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 <body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            
-            <div class="logo" style="color: #45a049;;">Admin</div>
-            <div class="profile">
-                <img src="/public/imgs/mm.jpg" alt="Profile" class="profile-img">
-            </div>
-            <nav>
-                <a href="#"><i class="fa-solid fa-house"></i>Home</a><br>
-                <a href="#"><i class="fa-solid fa-users"></i>Users</a><br>
-                <a href="#"><i class="fa-brands fa-salesforce"></i>Sales</a><br>
-                <a href="#"><i class="fa-solid fa-sheet-plastic"></i>Reports</a><br>
-                <a href="#"><i class="fa-solid fa-gear"></i>Setting</a><br>
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a><br>
-            </nav>
-        </aside>
-        <main class="content">
-            <header class="header">
-                <input type="text" placeholder="Search..." class="search-bar">
-                <div class="user-actions">
-                    <button>A</button>
+    <div class="page-wrapper">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="logo" style="color: #f3ba36;">Manager Maganjo</div>
+                <div class="profile">
+                    <img class="profile-img" src="/imgs/mm.jpg" alt="Profile">
                 </div>
-            </header>
-            <section class="overview">
-                <div class="card products">
-                    <div class="card-title">PRODUCTS</div>
-                    <div class="card-value">249</div>
-                </div>
-                <div class="card categories">
-                    <div class="card-title">SALES</div>
-                    <div class="card-value">25</div>
-                </div>
-                <div class="card customers">
-                    <div class="card-title">IN STOCK</div>
-                    <div class="card-value">1500</div>
-                </div>
-                <div class="card alerts">
-                    <div class="card-title">OUT OF STOCK</div>
-                    <div class="card-value">56</div>
-                </div>
-            </section>
-            <section class="charts">
-                <div class="chart-container top-products">
-                    <h2>Top 5 Products</h2>
-                    <canvas id="topProductsChart"></canvas>
-                </div>
-                <div class="chart-container sales-orders">
-                    <h2>Sales overview</h2>
-                    <canvas id="myChart" style="width:60%;max-width:240px"></canvas>
-                </div>
-            </section>
-        </main>
+                <nav>
+                    <a href="/">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                    <br>
+                    <a href="/addProduce">
+                        <i class="fas fa-boxes"></i>
+                        Procurement
+                    </a>
+                    <br>
+                    <a href="/produceList">
+                        <i class="fas fa-clipboard-list"></i>
+                        Produce List
+                    </a>
+                    <br>
+                    <a href="/addSale">
+                        <i class="fas fa-cash-register"></i>
+                        Sales
+                    </a>
+                    <br>
+                    <a href="/salesList">
+                        <i class="fas fa-clipboard-list"></i>
+                        Sales List
+                    </a>
+                    <br>
+                    <a href="/logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                    <br>
+                    <a href="/">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="content">
+                <section class="overview">
+                    <div class="card products">
+                        <div class="card-title">PRODUCTS</div>
+                        <div class="card-value cardi">249</div>
+                    </div>
+                    <div class="card categories">
+                        <div class="card-title">SALES</div>
+                        <div class="card-value cardi">25</div>
+                    </div>
+                    <div class="card customers">
+                        <div class="card-title">IN STOCK</div>
+                        <div class="card-value cardi">1500</div>
+                    </div>
+                    <div class="card alerts">
+                        <div class="card-title">OUT OF STOCK</div>
+                        <div class="card-value cardi">56</div>
+                    </div>
+                </section>
+
+                <section class="performance-highlights">
+                    <div class="highlight-card">
+                        <h2>Top Selling Products</h2>
+                        <div class="product-list">
+                            <div class="product-item">
+                                <div class="product-name">Beans</div>
+                                <div class="product-revenue">30m UGX</div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-name">Groundnuts</div>
+                                <div class="product-revenue">45m UGX</div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-name">Maize</div>
+                                <div class="product-revenue">20m UGX</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card">
+                        <h2>Top Sellers By Order Count</h2>
+                        <div class="seller-list">
+                            <div class="seller-item">
+                                <div class="seller-name">Elly Mukisa</div>
+                                <div class="order-count">15 orders</div>
+                            </div>
+                            <div class="seller-item">
+                                <div class="seller-name">Joy Tendo</div>
+                                <div class="order-count">12 orders</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card">
+                        <h2>Customers By Purchases</h2>
+                        <div class="customer-list">
+                            <div class="customer-item">
+                                <div class="customer-name">Shelby Goode</div>
+                                <div class="purchase-count">8 purchases</div>
+                            </div>
+                            <div class="customer-item">
+                                <div class="customer-name">Robert Bacins</div>
+                                <div class="purchase-count">6 purchases</div>
+                            </div>
+                            <div class="customer-item">
+                                <div class="customer-name">John Carlo</div>
+                                <div class="purchase-count">5 purchases</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
-    <script src="/public/js/managerdash.js"></script>
+
+    <footer class="dashboard-footer">
+        <p>Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/managerdash.js"></script>
 </body>
 </html>

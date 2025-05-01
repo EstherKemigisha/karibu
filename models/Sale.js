@@ -1,12 +1,9 @@
-//defining our schema
 const mongoose = require("mongoose");
 
 const saleSchema = new mongoose.Schema({
     produceName:{
-        type:String,
-        trim:true,
-        // required:true,
-        //unique:true
+        type: mongoose.Schema.Types.ObjectId,  // Changed to ObjectId
+        ref: "Produce"
     },
     tonnage:{
         type:Number,
@@ -43,6 +40,10 @@ const saleSchema = new mongoose.Schema({
         trim:true,
         //required:true,
     },
+    seller:{
+         type: mongoose.Schema.Types.ObjectId,
+        ref: "Signup"
+    }
     
 })
 

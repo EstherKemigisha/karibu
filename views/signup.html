@@ -1,40 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration</title>
-    <link rel="stylesheet" href="/public/css/signup.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Registration</title>
+  <link rel="stylesheet" href="/public/css/signup.css" />
 </head>
-
 <body>
-    <div class="container">
-        <div class="form-container">
-            <div class="form-section active" id="login">
-                <h2>Login</h2>
-                <input type="text" id="loginUsername" placeholder="Username">
-                <input type="password" id="loginPassword" placeholder="Password">
-                <button class="submit-btn" id="loginSubmit">Login</button>
-                <p class="switch-form">Don't have an account? <a href="#" id="switchToRegister">Register</a></p>
-            </div>
-            <div class="form-section" id="register">
-                <h2>Register</h2>
-                <input type="text" id="registerUsername" placeholder="Username">
-                <input type="email" id="registerEmail" placeholder="Email">
-                <input type="password" id="registerPassword" placeholder="Password">
-                <button type="submit" class="submit-btn" id="registerSubmit">Register</button>
-                <p class="switch-form">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
-            </div>
-        </div>
-        <div class="welcome-box">
-            <h2>WELCOME KARIBU GROCERIES LTD!</h2>
-            <p>Your fresh buy grocery</p>
-        </div>
-    </div>
-    <script src="/public/js/signup.js"></script>
-</body>
+  <div class="container">
+    <div class="form-container">
+      <div id="login" class="form-section active">
+        <h2>Login</h2>
+        <form id="loginform" action="/login" method="post">
+          <input id="email" type="text" name="email" placeholder="Email" />
+          <input id="loginPassword" type="password" name="password" placeholder="Password" />
+          <button id="loginSubmit" class="submit-btn" type="submit">Login</button>
+          <p class="switch-form">
+            Don't have an account?
+            <a id="switchToRegister" href="#">Register</a>
+          </p>
+        </form>
+      </div>
 
+      <div id="register" class="form-section">
+        <h2>Register</h2>
+        <form id="form" action="/signingup" method="post">
+          <input id="registerEmail" type="email" name="email" placeholder="Email" />
+          <input id="registerPassword" type="password" name="password" placeholder="Password" />
+          <input id="confirmPassword" type="password" name="confirm" placeholder="Confirm Password" />
+
+          <label class="spaced" id="role" for="role">Role:</label>
+          <select class="spaced" id="select" name="role">
+            <option value="">Select Role</option>
+            <option value="sales agent">Sales Agent</option>
+            <option value="manager">Manager</option>
+            <option value="Director">Director</option>
+          </select>
+
+          <div class="branch-section">
+            <label class="spaced" id="branch" for="branch">Branch:</label>
+            <select class="spaced" name="branch" id="branch">
+              <option value="Maganjo">Maganjo</option>
+              <option value="Mattuga">Mattuga</option>
+            </select>
+          </div>
+
+          <button id="registerSubmit" class="submit-btn" type="submit">Register</button>
+          <p class="switch-form">
+            Already have an account?
+            <a id="switchToLogin" href="#">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="welcome-box">
+      <h2>WELCOME TO KARIBU GROCERIES LTD!</h2>
+      <p>Your fresh buy grocery</p>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <!-- Optional footer (uncomment if needed) -->
+  <!--
+  <footer>
+    <div class="copyright">
+      © 2025 Karibu Sales Maganjo. All rights reserved.
+    </div>
+  </footer>
+  -->
+
+  <script src="/public/js/signup.js"></script>
+</body>
 </html>
+
 
 

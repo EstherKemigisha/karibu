@@ -21,9 +21,9 @@ html(lang="en")
         #register.form-section
           h2 Register
           form#form(action='/signingup' method='post' )
+            input#fullName(type='name' name='fullName' placeholder='Full Name' )
             input#registerEmail(type='email' name='email' placeholder='Email' )
             input#registerPassword(type='password' name='password' placeholder='Password' )
-            input#confirmPassword(type='password' name='confirm' placeholder='Confirm Password')
 
             label.spaced#role(for='role') Role:
             select.spaced#select(name="role")
@@ -46,6 +46,13 @@ html(lang="en")
       .welcome-box
         h2 WELCOME TO KARIBU GROCERIES LTD!
         p Your fresh buy grocery
+        br
+        br
+    //- footer.div
+    //-   //- .footer-content
+    //-   //-   .footer-logo Karibu Sales
+    //-   .copyright
+    //-     | © 2025 Karibu Sales Maganjo. All rights reserved.
 
     script(src='/js/signup.js')
 
