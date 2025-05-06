@@ -3,47 +3,93 @@ html
   head
     title Produce Sales Record
     link(rel='stylesheet' href='/css/sales.css')
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
+    )
   body
-    .page-wrapper
-      .sales-form
-        h2 Record Sales
-        form#salesRecordForm(action='/addSale/${produce._id}' method='POST')
-          .form-group
-            label(for='produceName') Produce Name
-            select#produceName(name='produceName')
-              option(value='') Select Produce
-              option(value=produce._id) #{produce.produceName} 
-          .form-group
-            label(for='tonnage') Tonnage (kgs):
-            input#tonnage(type='number' name='tonnage')
-          .form-group
-            label(for='pricePerkg') Price per kg
-            input#pricePerkg(type='number' name='pricePerkg')
-          .form-group
-            label(for='amountPaid') Amount Paid (UgX):
-            input#amountPaid(type='number' name='amountPaid')
-          .form-group
-            label(for='quantitysold') Quantity Sold
-            input#quantitysold(type='number' name='qsold')
-          .form-group
-            label(for='buyerName') Buyer's Name:
-            input#buyerName(type='text' name='buyerName')
-          // Part for Seller Selection
-          .form-group
-            label(for='seller') Seller:
-            select#seller(name='seller' required)
-              option(value='') Select Seller
-              if currentUser
-                 option(value=currentUser._id) #{currentUser.fullName} 
-              else
-                option(value='' disabled) No Sellers Available
-          // End of Seller Part
-          .form-group
-            label(for='dateTime') Date and Time:
-            input#dateTime(type='datetime-local' name='dateTime')
-          button(type='submit') Submit
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6818bd7c927586a513ba2ecd') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
 
-      footer
-        .copyright Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    // Main Content
+    .sales-form
+      h2 Record Sales
+      form#salesRecordForm(action=`/addSale/${produce._id}` method='POST')
+        .form-group
+          label(for='produceName') Produce Name
+          select#produceName(name='produceName')
+            option(value='') Select Produce
+            option(value='beans') Beans
+            option(value='maize') Maize
+            option(value='cowpeas') Cowpeas
+            option(value='soybeans') Soybeans
+            option(value='groundnuts') Ground Nuts
+
+        .form-group
+          label(for='tonnage') Tonnage (kgs):
+          input#tonnage(
+            type='number'
+            name='tonnage'
+            max=produce.tonnage
+            data-available-stock=produce.tonnage
+            required
+          )
+
+        .form-group
+          label(for='pricePerkg') Price per kg
+          input#pricePerkg(type='number' name='pricePerkg')
+
+        .form-group
+          label(for='amountPaid') Amount Paid (UgX):
+          input#amountPaid(type='number' name='amountPaid')
+
+        .form-group
+          label(for='quantitysold') Quantity Sold
+          input#quantitysold(type='number' name='qsold')
+
+        .form-group
+          label(for='totalamount') Total Amount (UgX):
+          input#totalamount(type='number' name='totalAmount')
+
+        .form-group
+          label(for='branch') Branch Name:
+          select#branch(name='storeBranch')
+            option(value='') Branch Name
+            option(value='mattuga') Mattuga
+            option(value='maganjo') Maganjo
+
+        .form-group
+          label(for='buyerName') Buyers Name:
+          input#buyerName(type='text' name='buyerName')
+
+        .form-group
+          label(for='salesAgent') Sales Agent Name:
+          select#salesAgent(name='salesAgentName' required)
+            option(value='') Select Sales Agent
+            option(value='Mbabazi Sarah') Mbabazi Sarah
+            option(value='Ninsiima Jane') Ninsiima Jane
+
+        .form-group
+          label(for='dateTime') Date and Time:
+          input#dateTime(type='datetime-local' name='dateTime')
+
+        button(type='submit') Submit
+
+    // Footer
+    footer
+      .copyright
+        | Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
     script(src='/js/sales.js')

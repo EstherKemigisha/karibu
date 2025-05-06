@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login")
+const moment = require('moment');
 
 const Produce = require("../models/Produce");
 router.get("/addProduce", (req, res) => {
@@ -33,46 +34,39 @@ router.get("/produceList", async(req,res)=> {
 })
 
 //update
-router.get("/updateProduce/:id", async(req,res) => {
+router.get("/updateProduce/:id", async (req, res) => {
   try {
-    const updateProduce = await Produce.findOne({_id:req.params.id})
-    res.render("updateproduce",{produce:updateProduce})
-  } catch (error){
-    res.status(400).send("unable to find this item in the db")
+    const produceId = req.params.id;  // Get the produce ID from the URL
+    const updateProduce = await Produce.findOne({ _id: produceId });
+    res.render("updateproduce", { produce: updateProduce });
+  } catch (error) {
+    res.status(400).send("Unable to find this item in the database");
   }
-  
-  })
-  
-  router.post("/updateProduce", async(req,res) =>{
-    try {
-      await Produce.findOneAndUpdate({_id:req.query.id}, req.body)
-      res.redirect("/produceList")
-    } catch (error) {
-      res.status(400).send("unable to find this item in the database")
-    }
-  })
+});
+
+
 
     //Delete route
-  // router.post("/deleteProduce", connectEnsureLogin.ensureLoggedIn(), async(req,res)=>{
-  //   try{
-  //      await Produce.deleteOne({_id:req.body.id});
-  //      res.redirect("back")
-  //   } catch(error) {
-  //     res.status(400).send("unable to delete this item in the database")
+  router.post("/deleteProduce", connectEnsureLogin.ensureLoggedIn(), async(req,res)=>{
+    try{
+       await Produce.deleteOne({_id:req.body.id});
+       res.redirect("back")
+    } catch(error) {
+      res.status(400).send("unable to delete this item in the database")
+    }
+  })
+  // router.post("/deleteProduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  //   if (!req.session.user || req.session.user.role !== "manager") {
+  //     return res.redirect("/login?message=PleaseLoginAsManager");
   //   }
-  // })
-  router.post("/deleteProduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-    if (!req.session.user || req.session.user.role !== "manager") {
-      return res.redirect("/login?message=PleaseLoginAsManager");
-    }
   
-    try {
-      await Produce.deleteOne({ _id: req.body.id });
-      res.redirect("/produceList");
-    } catch (error) {
-      res.status(400).send("Unable to delete this item in the database");
-    }
-  });
+  //   try {
+  //     await Produce.deleteOne({ _id: req.body.id });
+  //     res.redirect("/back");
+  //   } catch (error) {
+  //     res.status(400).send("Unable to delete this item in the database");
+  //   }
+  // });
   
   
     

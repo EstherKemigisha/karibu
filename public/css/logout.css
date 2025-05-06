@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background-color: rgb(255, 218, 185); */
 }
 
 .page-wrapper {
@@ -62,7 +63,97 @@ html, body {
 footer.logout-footer {
   text-align: center;
   padding: 15px 0;
-  background-color: #222;
+  background-color: #162938;;
   color: #ccc;
   font-size: 14px;
 }
+
+/* === Navbar Styles === */
+nav.navbar {
+  background-color: #162938; /* Dark background */
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f3ba36; /* Logo color */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: medium;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #f3ba36;
+  color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+  padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+  margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+  background-color: #162938;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up all available space */
+.sales-form {
+  flex: 1;
+}
+
+/* Footer styling */
+footer.page-footer {
+  background-color: #162938; /* Optional: Add a background color */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push the footer to the bottom */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+
+
+
+  

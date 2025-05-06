@@ -2,12 +2,26 @@ doctype html
 html
   head
     title Credit List
-    link(rel='stylesheet' href='/css/credit2.css')
+    link(rel='stylesheet', href='/css/credit2.css')
   body
+    //- Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
     .page-container
       .sales-form
-        h2 Credit Payment Records
-        table#creditssTable
+        h2 Credit  Records
+        table#credits 
           thead
             tr
               th Buyer's name
@@ -37,12 +51,13 @@ html
                   td #{credit.producename}
                   td #{credit.producetype}
                   td #{credit.amount}
-                  td #{moment(credit.duedate).format("DD-MM-YY")}
+                  td(data-date=credit.duedate)= credit.duedate ? new Date(credit.duedate).toLocaleString() : 'N/A'
                   td 
-                    a(href="/updateCredit/"+credit._id) Update
+                    a.button-update.table-button(href="/updateCredit/" + credit._id) Update
                   td 
                     form(action="/deleteCredit" method="post")
                       input(type="hidden" name="id" value=credit._id)
                       button.delete-button(type='submit') Delete
-      footer.page-footer
-        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved
+    footer.page-footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved
+

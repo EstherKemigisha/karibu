@@ -1,50 +1,76 @@
 doctype html
 html
   head
-    title items Record
+    title Items Record
     link(rel='stylesheet' href='/css/produce2.css')
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'
+      integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    )
   body
-    .page-wrapper
-      .sales-form
-        h2 Stock Table
-        table#stockTable
-          thead
-            tr
-              th Produce
-              th Type
-              th Tonnage
-              th Buying Price
-              th Selling Price
-              th Branch
-              th Dealers 
-              th Payment Method
-              th Date 
-              th Time
-              th Update 
-              th Delete
-          tbody#stock-table
-            if produce.length
-              each item in produce
-                tr
-                  td #{item.produce}
-                  td #{item.type}
-                  td #{item.tonnage}
-                  td #{item.buyingPrice}
-                  td #{item.sellingPrice}
-                  td #{item.branch}
-                  td #{item.dealers}
-                  td #{item.paymentmethod}
-                  td #{moment(item.date).format("DD-MM-YY")}
-                  td #{item.time}
-                  td
-                    a(href="/updateProduce/"+item._id) Update
-                  td
-                    form(action="/deleteProduce" method="post")
-                      input(type="hidden" name="id" value=item._id)
-                      button.delete-button(type='submit') Delete
-                  td 
-                    a(href="/addSale/"+item._id) Sale
-      footer.page-footer
-        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
+    // Stock Table Section
+    .sales-form
+      h2 Stock Table
+
+      .add-button-container
+        a.button-add(href="/addProduce") Add Produce
+
+      table#stockTable
+        thead
+          tr
+            th Produce
+            th Type
+            th Tonnage
+            th Buying Price
+            th Selling Price
+            th Branch
+            th Dealers
+            th Payment Method
+            th Date
+            th Time
+            th Update
+            th Delete
+        tbody#stock-table
+          if produce.length
+            each item in produce
+              tr
+                td #{item.produce}
+                td #{item.type}
+                td #{item.tonnage}
+                td #{item.buyingPrice}
+                td #{item.sellingPrice}
+                td #{item.branch}
+                td #{item.dealers}
+                td #{item.paymentmethod}
+                td(data-date=item.date)= item.date ? new Date(item.date).toLocaleString() : 'N/A'
+                td #{item.time}
+                td
+                  a.button-update.table-button(href="/updateProduce/"+item._id) Update
+                td
+                  form(action="/deleteProduce" method="post")
+                    input(type="hidden" name="id" value=item._id)
+                    button.delete-button(type='submit') Delete
+
+    // Footer
+    footer.page-footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
 

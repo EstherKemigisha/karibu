@@ -133,4 +133,297 @@ html, body {
     font-size: 14px;
     width: 100%;
   }
+
+  /* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #162938;
+  color: white;
+  padding: 10px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar .logo {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f3ba36;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background-color: #34495e;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make sidebar and main content sit side by side */
+.dashboard {
+  display: flex;
+  flex: 1;
+}
+
+.notification-header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+#notifIcon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #f3ba36;
+  position: relative;
+}
+
+.notifications {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.notifications h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.notifications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notifications li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.content {
+  margin-left: 250px;
+}
+aside.sidebar {
+  background-color: #222831; /* Dark background color */
+  color: #EEEEEE; /* Light text color */
+  width: 250px; /* Adjust width as needed */
+  padding-top: 20px; /* Add some top padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+aside.sidebar .logo {
+  font-size: 1.5em; /* Adjust size as needed */
+  font-weight: bold;
+  color: #FFD369; /* Yellow color for the logo text */
+  margin-bottom: 30px; /* Space below the logo */
+}
+
+aside.sidebar br {
+  display: none; /* Hide the <br> elements used for spacing in the HTML */
+}
+
+aside.sidebar nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Make links take full width */
+}
+
+aside.sidebar nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #EEEEEE;
+  margin-bottom: 5px; /* Space between links */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+aside.sidebar nav a:hover {
+  background-color: #393E46; /* Slightly lighter background on hover */
+}
+
+aside.sidebar nav a i {
+  margin-right: 10px;
+  font-size: 1.2em; /* Adjust icon size */
+  width: 20px; /* Ensure consistent icon width */
+  text-align: center; /* Center the icon within its space */
+}
+
+/* Style for the "Home" link to match the active state in the image */
+aside.sidebar nav a[href="/"] {
+  background-color: #2A363B; /* Slightly different background for active/selected */
+}
+
+/* Specific styling for the "Logout" and "Back" links to match the image */
+aside.sidebar nav a[href="/logout"],
+aside.sidebar nav a[href="/"][title="Back"] { /* Assuming you might add a title for "Back" */
+  /* Add any specific styling if needed, e.g., different hover color */
+}
+
+.profile-img{
+  width: 80px;
+  height: 80px;
+  border-radius: 60%;
+  margin-bottom: 10px;
+}
+/* === Navbar Styles === */
+nav.navbar {
+  background-color: #162938; /* Dark background */
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f3ba36; /* Logo color */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: medium;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #f3ba36;
+  color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+  padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+  margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+  background-color: #162938;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up all available space */
+.sales-form {
+  flex: 1;
+}
+
+/* Footer styling */
+footer.page-footer {
+  background-color: #162938; /* Optional: Add a background color */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push the footer to the bottom */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+
+
+
   
+
+
+

@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    display: flex;
   
 
 }
@@ -109,12 +110,12 @@ body {
 }
 
 #branch {
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: smaller;
     font-weight: bold;
 }
-
+#bra{color: white;}
 
   .spaced {
     margin-right: 20px;
@@ -203,4 +204,109 @@ body {
 
 .sale{
     font-size: 25px;
+}
+/* Form message styles */
+.form-message {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .form-message.success {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+  }
+  
+  .form-message.error {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #d32f2f;
+    border: 1px solid #f44336;
+  }
+  
+  /* Field error styles */
+  .error-message {
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  input.error, select.error {
+    border-color: #f44336;
+  }
+  
+  /* Animation for messages */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  footer.page-footer {
+    background-color: #162938; /* Dark footer background */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  input.error {
+    border-color: red;
+  }
+  /* Style for error messages */
+.error-message {
+  color: red; /* Red text for errors */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  margin-top: 5px; /* Add some spacing above the error message */
+  display: none; /* Initially hide the error messages */
+}
+
+/* Show error messages when they are populated */
+.error-message.active {
+  display: block; /* Display the error message */
+}
+
+/* Footer Styling */
+footer.page-footer {
+  background-color: #162938; /* Dark background color */
+  color: grey; /* White text color */
+  text-align: center; /* Center the text */
+  /* padding: 15px 0; Add padding to the top and bottom */
+  font-size: 14px; /* Font size for the footer text */
+  /* position: fixed; Fix the footer at the bottom */
+  bottom: 0; /* Align it to the bottom */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  /* margin-bottom: 10px; */
+  font-weight: lighter;
+  height: 20px;
+  margin-top: 40px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+input.error, select.error {
+  border: 2px solid red;
 }

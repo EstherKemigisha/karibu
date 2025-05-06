@@ -9,26 +9,6 @@ body {
     flex-direction: row; 
 }
 
-.sidebar {
-    width: 190px;
-    background-color: #162938;
-    color: white;
-    padding: 20px;
-    height: 430px;
-    font-weight: lighter;
-}
-
-.sidebar a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    margin-bottom: 5px;
-}
-
-sidebar a:hover {
-    background-color: #555;
-}
 
 .dashboard-content {
     flex: 1; 
@@ -54,7 +34,7 @@ sidebar a:hover {
     color: #f3ba36;
     font-size: small;
     font-weight: 500;
-    width: 160px;
+    width: 220px;
     height: 90px;
 
     
@@ -73,6 +53,7 @@ sidebar a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding-left: 10px;
+    height: 300px;
 }
 
 .finance-table h2 {
@@ -104,8 +85,8 @@ tr:nth-child(even) {
 
 /* Footer Styles */
 footer {
-    background-color: white;
-    color: black;
+    background-color: #162938;
+    color: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -149,3 +130,108 @@ footer {
 .sale{
     font-size: 25px;
 }
+
+/* === Navbar Styles === */
+nav.navbar {
+    background-color: #162938; /* Dark background */
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f3ba36; /* Logo color */
+    text-decoration: none;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: medium;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+  
+  .navbar-links a:hover {
+    background-color: #f3ba36;
+    color: #162938; /* Change color on hover */
+  }
+  
+  /* Space below the navbar so content doesn't overlap */
+  body {
+    padding-top: 60px; /* Adjust this value according to navbar height */
+  }
+  
+  /* === Main Content === */
+  .page-container {
+    margin-top: 60px; /* Avoid overlap with fixed navbar */
+  }
+  
+  /* === Footer === */
+  .page-footer {
+    background-color: #162938;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
+  }
+  /* Ensure the body and html take up the full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Main content should take up all available space */
+  .sales-form {
+    flex: 1;
+  }
+  
+  /* Footer styling */
+  footer.page-footer {
+    background-color: #162938; /* Optional: Add a background color */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Push the footer to the bottom */
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  /* Dashboard Item Styling */
+.dashboard-item {
+  background-color: #162938; /* Light gray background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.dashboard-item:hover {
+  transform: translateY(-5px); /* Slightly lift the card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+  background-color: #162938;/* Slightly darker background on hover */
+}
+  
+  
+    

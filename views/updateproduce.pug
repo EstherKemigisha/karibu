@@ -1,63 +1,105 @@
 doctype html
 html
   head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Update Produce
-    link(rel='stylesheet' href='/css/updateP.css')
+    link(rel="stylesheet" href="/css/produce.css")
+    link(
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    )
   body
-    .wrapper
-      form.form#form(action="/updateProduce?id=" + produce._id method="post")
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6818f7cac7d9f13a6c6de5ee') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit 
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
+    // Main Content
+    main.content
+      form.form#form(action="/updateProduce/" + produce._id method="post")
         .form-container
           .form-header
-            h2(style='align-items: center;') Update Stock
-            button.close-button &times;
+            h2 Update Stock
+
+          // Produce Field
           .form-group
-            label(for='produce') Produce
-            select#produce(name='produce')
-              option(value='') Select Produce
-              option(value='maize') Maize
-              option(value='cowpeas') Cowpeas
-              option(value='beans') Beans
-              option(value='soybeans') Soybeans
+            label(for="produce") Produce
+            select#produce(name="produce" required)
+              option(value="") Select Produce
+              option(value="maize" selected=produce.produce === "maize") Maize
+              option(value="cowpeas" selected=produce.produce === "cowpeas") Cowpeas
+              option(value="beans" selected=produce.produce === "beans") Beans
+              option(value="soybeans" selected=produce.produce === "soybeans") Soybeans
+
+          // Type Field
           .form-group
-            label(for='type') Type
-            select#type(name='type')
-              option(value='') Select Type
-              option(value='legume') Legume
-              option(value='cereal') Cereal
+            label(for="type") Type
+            select#type(name="type" required)
+              option(value="") Select Type
+              option(value="legume" selected=produce.type === "legume") Legume
+              option(value="cereal" selected=produce.type === "cereal") Cereal
+
+          // Tonnage Field
           .form-group
-            label(for='tonnage') Tonnage (kgs)
-            input#tonnage(type='number' name='tonnage')
+            label(for="tonnage") Tonnage (kgs)
+            input#tonnage(type="number" name="tonnage" value=produce.tonnage required)
+
+          // Buying Price Field
           .form-group
-            label(for='buyingPrice') Buying Price (Ugx)
-            input#buyingPrice(type='number' name='buyingPrice')
+            label(for="buyingPrice") Buying Price (Ugx)
+            input#buyingPrice(type="number" name="buyingPrice" value=produce.buyingPrice required)
+
+          // Selling Price Field
           .form-group
-            label(for='sellingPrice') Selling Price (Ugx)
-            input#sellingPrice(type='number' name='sellingPrice')
+            label(for="sellingPrice") Selling Price (Ugx)
+            input#sellingPrice(type="number" name="sellingPrice" value=produce.sellingPrice required)
+
+          // Branch Field
           .form-group
-            label(for='branch') Branch
-            select#branch(name='branch')
-              option(value='') Select Branch
-              option(value='mattuga') Mattuga
-              option(value='maganjo') Maganjo
+            label(for="branch") Branch
+            select#branch(name="branch" required)
+              option(value="") Select Branch
+              option(value="mattuga" selected=produce.branch === "mattuga") Mattuga
+              option(value="maganjo" selected=produce.branch === "maganjo") Maganjo
+
+          // Dealers Field
           .form-group
-            label(for='dealers') Dealers
-            input#dealers(type='text' name='dealers')
+            label(for="dealers") Dealers
+            input#dealers(type="text" name="dealers" value=produce.dealers required)
+
+          // Payment Method Field
           .form-group
-            label(for='paymentmethod') Payment Method
-            select#paymentmethod(name='paymentmethod')
-              option(value='') Select Method
-              option(value='cash') Cash
-              option(value='mobilemoney') Mobile Money
-              option(value='banktransfer') Bank Transfer
+            label(for="paymentmethod") Payment Method
+            select#paymentmethod(name="paymentmethod" required)
+              option(value="") Select Method
+              option(value="cash" selected=produce.paymentmethod === "cash") Cash
+              option(value="mobilemoney" selected=produce.paymentmethod === "mobilemoney") Mobile Money
+              option(value="banktransfer" selected=produce.paymentmethod === "banktransfer") Bank Transfer
+
+          // Date Field
           .form-group
-            label(for='date') Date
-            input#date(type='date' name='date')
+            label(for="date") Date
+            input#date(type="date" name="date" value=produce.date required)
+
+          // Time Field
           .form-group
-            label(for='time') Time
-            input#time(type='time' name='time')
-          button.submit-button(type='submit') Save
-      footer.page-footer
-        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
-    script(src='/js/produce.js')
+            label(for="time") Time
+            input#time(type="time" name="time" value=produce.time required)
+
+          // Submit Button
+          button.submit-button(type="submit") Update Stock
+
+    // Footer
+    footer.page-footer
+     Kemigisha Kemigisha Esther&copy; 2025 Karibu Groceries. All rights reserved.

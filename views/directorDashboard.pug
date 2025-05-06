@@ -1,4 +1,75 @@
+//- doctype html
+//- html
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//-     title Director Dashboard
+//-     link(
+//-       rel="stylesheet"
+//-       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+//-       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+//-       crossorigin="anonymous"
+//-       referrerpolicy="no-referrer"
+//-     )
+//-     link(rel="stylesheet" href="/css/directordash.css")
+//-   body
+//-     // Navbar
+//-     nav.navbar
+//-       .navbar-container
+//-         .logo
+//-           a(href='/') Karibu Groceries
+//-         .navbar-links
+//-           a(href='/') Home
+//-           a(href='/addProduce') Procurement
+//-           a(href='/produceList') Produce List
+//-           a(href='/addSale/6817e3218f385583b1ed79b6') Sales
+//-           a(href='/salesList') Sales List
+//-           a(href='/credit') Credit Payment
+//-           a(href='/creditList') Credit List
+//-           a(href='/logout') Logout
 
+//-     // Dashboard Container
+//-     .dashboard-container
+//-       .dashboard
+//-         // Dashboard Header
+//-         .dashboard-header
+//-           h1 Sales Overview
+
+//-         // Dashboard Grid
+//-         .dashboard-grid
+//-           .dashboard-item
+//-             h3 Total Sales
+//-             p#totalSales= totalRevenue.totalsale
+//-           .dashboard-item
+//-             h3 Average Daily Sales
+//-             p#averageDailySales UGX #{totalRevenue.totalsale}
+//-           .dashboard-item
+//-             h3 Maganjo Branch Sales
+//-             p#highestBranchSales UGX #{totalRevenue.maganjo}
+//-           .dashboard-item
+//-             h3 Mattuga Branch Sales
+//-             p#lowestBranchSales UGX #{totalRevenue.mattuga}
+
+//-         // Sales Table
+//-         table
+//-           thead
+//-             tr
+//-               th Branch Name
+//-               th Total Sales
+//-               th Period
+//-           tbody#salesTableBody
+//-           tfoot
+//-             tr
+//-               td Total Sales
+//-               td#tableTotalSales $20000
+//-               td March 2025
+
+//-     // Footer
+//-     footer
+//-       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+//-     // JavaScript
+//-     script(src="/js/directordash.js")
 
 doctype html
 html
@@ -14,72 +85,69 @@ html
       referrerpolicy="no-referrer"
     )
     link(rel="stylesheet" href="/css/directordash.css")
-
   body
-    .page-wrapper
-      .main-content
-        .sidebar
-          h2(style="color: #f3ba36;") Director
-          ul
-            li
-              a(href="/")
-                i.fa-solid.fa-house
-                | Home
-            br
-            li
-              a(href="/addSale")
-                i.fa-brands.fa-salesforce
-                | Sales List
-            br
-            li
-              a(href="/addSale")
-                i.fa-brands.fa-salesforce
-                | Add Sales
-            br
-            li
-              a(href="/logout")
-                i.fa-solid.fa-right-from-bracket
-                | Logout
-            br
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
 
-        .dashboard-container
-          .dashboard
-            .dashboard-header
-              h1 Sales Overview
-            .dashboard-grid
-              .dashboard-item
-                h3 Total Sales
-                p#totalSales= totalRevenue.totalsale
-              .dashboard-item
-                h3 Average Daily Sales
-                p#averageDailySales $5600
-              .dashboard-item
-                h3 Highest Branch Sales
-                p#highestBranchSales $8000
-                p#highestBranchName Mattuga
-              .dashboard-item
-                h3 Lowest Branch Sales
-                p#lowestBranchSales $3500
-                p#lowestBranchName Maganjo
+    // Dashboard Section
+    .dashboard-container
+      .dashboard
+        // Dashboard Header
+        .dashboard-header
+          h2 Director: Mr.Orban
+          h3 Sales Overview
 
-          table
-            thead
-              tr
-                th Branch Name
-                th Total Sales
-                th Period
-            tbody#salesTableBody
-            tfoot
-              tr
-                td Total Sales
-                td#tableTotalSales $20000
-                td March 2025
+        // Dashboard Grid
+        .dashboard-grid
+          .dashboard-item
+            h3 Total Sales
+            p#totalSales UGX #{totalRevenue.totalsale.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          .dashboard-item
+            h3 Average Daily Sales
+            p#averageDailySales UGX #{averageSales.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          .dashboard-item
+            h3 Maganjo Branch Sales
+            p#maganjoSales UGX #{totalRevenue.maganjo.toLocaleString()}
+          .dashboard-item
+            h3 Mattuga Branch Sales
+            p#mattugaSales UGX #{totalRevenue.mattuga.toLocaleString()}
 
-          .arrow-down ↓
+    // Sales Table Section
+    .sales-table-container
+      h3 Sales Table
+      table
+        thead
+          tr
+            th Branch Name
+            th Total Sales
+            th Period
+        tbody
+          each item in branchSales
+            tr
+              td #{item.branch}
+              td UGX #{item.totalSales.toLocaleString()}
+              td #{item.period}
+        tfoot
+          tr
+            td Total Sales
+            td UGX #{totalRevenue.totalsale.toLocaleString()}
+            td #{branchSales.length > 0 ? branchSales[0].period : 'N/A'}
 
-      footer
-        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    // Footer
+    footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
+    // JavaScript
     script(src="/js/directordash.js")
-
-

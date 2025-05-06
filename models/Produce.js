@@ -1,3 +1,5 @@
+
+
 const mongoose = require("mongoose");
 
 const produceSchema = new mongoose.Schema({
@@ -41,14 +43,33 @@ const produceSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  stock: {
+    type: Number,
+    required: true,
+    min: 0, // Ensure stock cannot be negative
+    default: 0, // Default stock level
+  },
+  status: {
+    type: String,
+    enum: ["available", "out of stock"], // Restrict to specific values
+    default: "available",
+  },
   date: {
     type: Date,
     required: true,
+    default: Date.now, // Automatically set the current date
   },
   time: {
     type: String,
     required: true,
   },
+  lastUpdated: {
+    type: Date,
+    default: Date.now, // Automatically set the last updated timestamp
+  },
 });
-
+produceSchema.pre("save", function (next) {
+  console.log("Stock value before saving:", this.stock); // Log the stock value
+  next();
+});
 module.exports = mongoose.model("Produce", produceSchema);

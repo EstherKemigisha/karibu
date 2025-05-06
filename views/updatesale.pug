@@ -2,40 +2,81 @@ doctype html
 html
   head
     title Produce Sales Record
-    link(rel='stylesheet' href='/css/sale.css')
+    link(rel='stylesheet' href='/css/saless.css')
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
+    )
   body
-    .page-wrapper
-      .sales-form
-        h2 Record Sales
-        form#salesRecordForm(action='/updateSale?id=' + sale._id method='POST')
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6818f7cac7d9f13a6c6de5ee') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
+    // Main Content
+    .sales-form
+      h2 Update Sales
+      form#salesRecordForm(action=`/updateSale/${sale._id}` method='POST')
+        .form-group
           label(for='produceName') Produce Name
-          select#produceName(name='produceName')
-            option(value='beans') Beans
-            option(value='cowpeas') Cowpeas
-            option(value='soybeans') Soy beans
-            option(value='groundnuts') Ground nuts 
+          input#produceName(type='text' name='produceName' value=sale.produceName required)
 
+        .form-group
           label(for='tonnage') Tonnage (kgs):
-          input#tonnage(type='number' name='tonnage')
+          input#tonnage(type='number' name='tonnage' value=sale.tonnage required)
 
+        .form-group
+          label(for='pricePerkg') Price per kg
+          input#pricePerkg(type='number' name='pricePerkg' value=sale.pricePerkg required)
+
+        .form-group
           label(for='amountPaid') Amount Paid (UgX):
-          input#amountPaid(type='number' name='amountPaid')
-          #amountPaidError.error
+          input#amountPaid(type='number' name='amountPaid' value=sale.amountPaid required)
 
-          label(for='buyerName') Buyer's Name:
-          input#buyerName(type='text' name='buyerName')
-          #buyerNameError.error
+        .form-group
+          label(for='quantitysold') Quantity Sold
+          input#quantitysold(type='number' name='qsold' value=sale.qsold required)
 
-          label(for='salesAgentName') Sales Agent's Name:
-          input#salesAgentName(type='text' name='salesAgentName')
-          #salesAgentNameError.error
+        .form-group
+          label(for='totalamount') Total Amount (UgX):
+          input#totalamount(type='number' name='totalAmount' value=sale.totalAmount required)
 
+        .form-group
+          label(for='branch') Branch Name:
+          select#branch(name='storeBranch')
+            option(value='') Branch Name
+            option(value='mattuga' selected=sale.storeBranch === 'mattuga') Mattuga
+            option(value='maganjo' selected=sale.storeBranch === 'maganjo') Maganjo
+
+        .form-group
+          label(for='buyerName') Buyers Name:
+          input#buyerName(type='text' name='buyerName' value=sale.buyerName required)
+
+        .form-group
+          label(for='salesAgent') Sales Agent Name:
+          select#salesAgent(name='salesAgentName' required)
+            option(value='') Select salesAgent
+            option(value='Mbabazi Sarah' selected=sale.salesAgentName === 'Mbabazi Sarah') Mbabazi Sarah
+            option(value='Ninsiima Jane' selected=sale.salesAgentName === 'Ninsiima Jane') Ninsiima Jane
+
+        .form-group
           label(for='dateTime') Date and Time:
-          input#dateTime(type='datetime-local' name='dateTime')
+          input#dateTime(type='datetime-local' name='dateTime' value=sale.dateTime)
 
-          button(type='submit') Update Sale
+        button(type='submit') Update Sale
 
-      footer
-        p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+    // Footer
+    footer.page-footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
-    script(src='/js/sales.js')
+

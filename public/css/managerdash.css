@@ -86,6 +86,7 @@ body {
   text-align: center;
   color: #f3ba36;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .card-title {
@@ -142,7 +143,7 @@ body {
 }
 
 .highlight-card {
-  background: white;
+  background: #162938;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -150,7 +151,7 @@ body {
 
 .highlight-card h2 {
   font-size: 1.2rem;
-  color: #333;
+  color: white;
   margin-bottom: 15px;
   border-bottom: 1px solid #eee;
   padding-bottom: 8px;
@@ -159,13 +160,13 @@ body {
 .vendor-info, .product-item, .seller-item, .customer-item {
   margin: 10px 0;
   padding: 8px;
-  background: #f9f9f9;
+  background: #162938;
   border-radius: 5px;
 }
 
 .vendor-name, .product-name, .seller-name, .customer-name {
   font-weight: bold;
-  color: #333;
+  color: white;
 }
 
 .vendor-revenue, .product-revenue, .order-count, .purchase-count {
@@ -175,11 +176,175 @@ body {
 
 /* Footer */
 .dashboard-footer {
-  background: #333;
+  background:#162938;
   color: white;
   /* padding: 20px; */
   text-align: center;
 }
 
+.notification-header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+#notifIcon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #f3ba36;
+  position: relative;
+}
+
+.notifications {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.notifications h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.notifications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notifications li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* === Navbar Styles === */
+nav.navbar {
+  background-color: #162938; /* Dark background */
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f3ba36; /* Logo color */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: medium;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #f3ba36;
+  color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+  padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+  margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+  background-color: #162938;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up all available space */
+.sales-form {
+  flex: 1;
+}
+
+/* Footer styling */
+footer.page-footer {
+  background-color: #162938; /* Optional: Add a background color */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push the footer to the bottom */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+
+/* Default card styling */
+.card {
+  background-color: #162938;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  height: 100px;
+  box-shadow: 0 2px 4px #f3ba36;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Optional: Active effect for tapping */
+.card:active {
+  transform: scale(0.98); /* Slightly shrink the card when tapped */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reduce shadow */
+}
+
+
+
+  
   
  

@@ -3,43 +3,76 @@ html
   head
     title Sales Record
     link(rel='stylesheet' href='/css/sale2.css')
-  body 
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'
+      integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    )
+  body
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6818f7cac7d9f13a6c6de5ee') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit 
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
     .page-wrapper
-      .sales-form
-        h2 Record Sales
-        table#salesTable
-          thead
-            tr
-              th Produce Name
-              th Tonnage (kgs)
-              th Amount Paid (UGX)
-              th Quantity Sold
-              th Buyer Name
-              th Date/Time
-              td Seller
-              th Update
-              th Delete 
-          tbody#stock-table
-            if sales.length
-              each sale in sales
+
+        // Main content
+        main.content
+          .sales-form
+            h2 Sales Records
+            table#salesTable
+              thead
                 tr
-                  td #{sale.produceName}
-                  td #{sale.tonnage}
-                  td #{sale.amountPaid}
-                  td #{sale.qsold}
-                  td #{sale.buyerName}
-                  td #{sale.salesAgentName}
-                  td #{moment(sale.dateTime).format("DD-MM-YY")}
-                  td #{sale.seller.fullname + ''}
-                  td 
-                    a(href="/updateSale/"+sale._id class="update-button") Update
-                  td 
-                    form(action="/deleteSale" method="post")
-                      input(type="hidden" name="id" value=sale._id)
-                      button.delete-button(type='submit') Delete
-              else
-                 tr
-                  td(colspan="2") No sales found
+                  th Produce Name
+                  th Tonnage (kgs)
+                  th Price per kg
+                  th Amount Paid (UgX):
+                  th Quantity Sold
+                  th Total Amount (UgX)
+                  th Branch Name
+                  th Sales Agent Name
+                  th Date and Time
+                  th Update
+                  th Delete
+              tbody#stock-table
+                if sales.length
+                  each sale in sales
+                    tr
+                      td #{sale.produceName}
+                      td #{sale.tonnage}
+                      td #{sale.pricePerkg}
+                      td #{sale.amountPaid}
+                      td #{sale.qsold}
+                      td #{sale.totalAmount}
+                      td #{sale.storeBranch}
+                      td #{sale.salesAgentName}
+                      td(data-date=sale.dateTime)= new Date(sale.dateTime).toLocaleString()
+
+                      td
+                        a(href="/updateSale/" + sale._id class="update-button") Update
+                      td
+                        form(action="/deleteSale" method="POST")
+                          input(type="hidden" name="id" value=sale._id)
+                          button.delete-button(type='submit') Delete
+                else
+                  tr
+                    td(colspan="10") No sales found
+
     footer
       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
     script(src='/js/sales.js')
+
+    
+

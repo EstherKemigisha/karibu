@@ -4,17 +4,41 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Payment Request
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css')
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+    )
     link(rel='stylesheet' href='/css/credit.css')
+
   body
+    // Navbar
+  .page-container
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries 
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
+    // Credit Form
     form.form#form(action='/credit' method='POST')
       .payment-request-container
-        h2 Credit Payment 
+        h2 Credits
+
+        // Contact Details
         .contact-details
           .input-container
             i.fas.fa-user
             label(for='sendTo') Buyer's Name
             input#name(type='text' name='buyersname')
+
           .form-group.input-group
             div
               i.fas.fa-id-card
@@ -24,6 +48,7 @@ html
               i.fas.fa-map-marker-alt
               label(for='address') Address
               input#address(type='text' name='address')
+
           .form-group.input-group
             div
               i.fas.fa-phone
@@ -33,6 +58,7 @@ html
               i.fas.fa-money-bill-wave
               label(for='amountdue') Amount Due (UgX)
               input#amountdue(type='text' name='amountD')
+
           .form-group.input-group
             div
               i.fas.fa-weight-hanging
@@ -42,6 +68,7 @@ html
               i.fas.fa-user-tie
               label(for='salesagent') Sales Agent Name
               input#salesagent(type='text' name='salesagent')
+
           .form-group.input-group
             div
               i.fas.fa-carrot
@@ -61,6 +88,8 @@ html
                 option(value='Legume')
                 option(value='Cereal')
                 option(value='Grain')
+
+        // Request Details
         .request-details
           .form-group.input-group
             div
@@ -71,8 +100,16 @@ html
               i.fas.fa-calendar-alt
               label(for='dueDate') Due Date
               input#dueDate(type='date' name='duedate')
+
+        // Buttons
         .buttons
-          button.cancel-button(type='button') Cancel
-          button.request-payment-button(type='submit') Save Payment
-  footer
-    p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved    
+          //- button.cancel-button(type='button') Cancel
+          button.request-payment-button(type='submit') Save 
+
+    // Footer
+    footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved
+
+    // Scripts
+    script(src='/js/credits.js')
+

@@ -49,7 +49,7 @@ const creditSchema = new mongoose.Schema({
   },
   duedate: {
     type: Date,
-    required: true
+    required: false
   }
 });
 

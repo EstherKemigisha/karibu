@@ -8,19 +8,11 @@ html(lang="en")
   body
     .container
       .form-container
-        #login.form-section.active
-          h2 Login
-          form#loginform(action='/login' method='post')
-            input#email(type='text' name='email' placeholder='Email')
-            input#loginPassword(type='password' name='password' placeholder='Password')
-            button#loginSubmit.submit-btn(type='submit') Login
-            p.switch-form
-              | Don't have an account?
-              a#switchToRegister(href='#') Register
 
-        #register.form-section
+        // Register Form (Now comes first with the 'active' class)
+        #register.form-section.active
           h2 Register
-          form#form(action='/signingup' method='post' )
+          form#form(action='/signingup' method='post' nonvalidate)
             input#fullName(type='name' name='fullName' placeholder='Full Name' )
             input#registerEmail(type='email' name='email' placeholder='Email' )
             input#registerPassword(type='password' name='password' placeholder='Password' )
@@ -30,30 +22,39 @@ html(lang="en")
               option(value="") Select Role
               option(value="sales agent") Sales Agent
               option(value="manager") Manager
-              option(value="Director") Director
+              option(value="director") Director
 
             .branch-section
-              label.spaced#branch(for='branch') Branch:
+              label.spaced#bra(for='branch') Branch:
               select.spaced(name="branch" id="branch")
-                option(value="Maganjo") Maganjo
-                option(value="Mattuga") Mattuga
+                option(value="maganjo") Maganjo
+                option(value="mattuga") Mattuga
 
             button#registerSubmit.submit-btn(type="submit") Register
             p.switch-form
               | Already have an account?
               a#switchToLogin(href='#') Login
 
+        // Login Form (Initially hidden and will be toggled)
+        #login.form-section
+          h2 Login
+          form#loginform(action='/login' method='post')
+            input#email(type='text' name='email' placeholder='Email')
+            input#loginPassword(type='password' name='password' placeholder='Password')
+            button#loginSubmit.submit-btn(type='submit') Login
+            p.switch-form
+              | Don't have an account?
+              a#switchToRegister(href='#') Register
+
       .welcome-box
         h2 WELCOME TO KARIBU GROCERIES LTD!
         p Your fresh buy grocery
         br
         br
-    //- footer.div
-    //-   //- .footer-content
-    //-   //-   .footer-logo Karibu Sales
-    //-   .copyright
-    //-     | © 2025 Karibu Sales Maganjo. All rights reserved.
+        a.link-btn(href='/') Back
 
-    script(src='/js/signup.js')
-
-    
+    // Footer Section
+    footer.page-footer
+      Kemigisha Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+  script(src='/js/signup.js') 
+  

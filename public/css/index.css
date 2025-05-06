@@ -23,7 +23,7 @@ body {
 }
 
 .content {
-    background-color:  #141414e2; 
+    background-color:  #141414f7; 
     padding: 50px;
     border-radius: 600px;
     box-shadow: 0 4px 8px rgba(241, 220, 28, 0.3);
@@ -132,10 +132,11 @@ p {
   position: relative; /* Prevent weird overlaps */
   bottom: 0;
   left: 0;
+  padding-bottom: 30px;
 }
 
 .footer p {
-  color: white;
+  color: grey;
   font-size: 14px;
   margin: 0;
 }

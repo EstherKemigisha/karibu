@@ -7,6 +7,22 @@ html
     link(rel='stylesheet' href='/css/logout.css')
   body
     .page-wrapper
+      // Navbar
+      nav.navbar
+        .navbar-container
+          .logo
+            a(href='/') Karibu Groceries
+          .navbar-links
+            a(href='/') Home
+            //- a(href='/addProduce') Procurement
+            //- a(href='/produceList') Produce List
+            //- a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+            //- a(href='/salesList') Sales List
+            //- a(href='/credit') Credit Payment
+            //- a(href='/creditList') Credit List
+            a(href='/logout') Logout
+
+      // Main Content
       .content
         .logout-container
           h2 Logout
@@ -14,8 +30,12 @@ html
           a.logout-button(href='/')
             button Logout
           p#confirmation-message Logged out successfully!
+
+      // Footer
       footer.logout-footer
         p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+    // JavaScript
     script(src="/js/logout.js")
 
 

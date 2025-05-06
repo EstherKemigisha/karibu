@@ -20,7 +20,7 @@ html, body {
   
   .sales-form h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   
   table {
@@ -63,10 +63,255 @@ html, body {
   }
   
   .page-footer {
-    background-color: #222;
+    background-color: #162938;
     color: #ccc;
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
   }
+
+  .add-button-container {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+  
+  .button-add {
+    padding: 8px 16px;
+    background-color: #32cd32;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .button-add:hover {
+    background-color: #218838;
+  }
+  
+  /* Common button base style */
+.table-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Update button */
+.button-update {
+  background-color: #007bff; /* Bootstrap primary blue */
+}
+
+.button-update:hover {
+  background-color: #0056b3;
+}
+
+/* Sale button */
+.button-sale {
+  background-color: #f6cd49;
+  color: #162938; /* Bootstrap info teal */
+}
+
+.button-sale:hover {
+  background-color: #f6cd49;
+}
+
+/* sidebar */
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #162938;
+  color: white;
+  padding: 10px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar .logo {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f3ba36;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background-color: #34495e;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make sidebar and main content sit side by side */
+.dashboard {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 190px; /* adjust as needed */
+  background-color: #162938;
+  color: white;
+  padding: 20px;
+  height: 200px;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  overflow-x: auto;
+}
+
+/* Optional: Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f3ba36;
+  color: #333;
+}
+
+/* Ensure footer stays at bottom */
+.page-footer {
+  text-align: center;
+  background-color:#162938; 
+  color: white;
+  padding: 10px;
+  margin-top: 6px;
+
+}
+
+/* === Navbar Styles === */
+nav.navbar {
+  background-color: #162938; /* Dark background */
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f3ba36; /* Logo color */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: medium;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #f3ba36;
+  color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+  padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+  margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+  background-color: #162938;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up all available space */
+.sales-form {
+  flex: 1;
+}
+
+/* Footer styling */
+footer.page-footer {
+  background-color: #162938; /* Optional: Add a background color */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push the footer to the bottom */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Table Row Hover Effect */
+#stockTable tbody tr:hover {
+  background-color: #f3f3f3; /* Light gray background on hover */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+
   

@@ -1,14 +1,13 @@
 /* Reset margin and padding for body */
 body {
-    margin: 0;
-    padding: 0;
+    margin-top: 80px;
+    padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9; /* Light background for better readability */
 }
 
 /* Styling the container */
 .sales-form {
-    margin: 0;
     padding: 20px;
     position: relative;
     top: 0;
@@ -97,3 +96,384 @@ body, html {
     font-size: 14px;
     width: 100%;
 }
+
+/* Common button style for links */
+.table-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Update button style */
+.button-update {
+    background-color: #007bff; /* Blue background for update */
+}
+
+.button-update:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button-update:active {
+    background-color: #004085; /* Even darker blue when clicked */
+}
+
+/* === Navbar Styles === */
+nav.navbar {
+    background-color: #162938; /* Dark background */
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f3ba36; /* Logo color */
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: medium;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.navbar-links a:hover {
+    background-color: #f3ba36;
+    color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+    padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+    margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+    background-color: #162938;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Reset margin and padding for body */
+body {
+    margin-top: 80px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background for better readability */
+}
+
+/* Styling the container */
+.sales-form {
+    padding: 20px;
+    position: relative;
+    top: 0;
+}
+
+/* Styling the table */
+table#creditssTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0; /* Ensures the table starts at the top */
+}
+
+/* Header row styles */
+table#creditssTable thead tr th {
+    background-color: #162938;  /* Header background color */
+    color: #f3ba36; /* Header text color */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Body row styles */
+table#creditssTable tbody tr td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Alternating row colors */
+table#creditssTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Highlight on hover */
+table#creditssTable tbody tr:hover {
+    background-color: #e8f4ff;
+}
+
+/* Styling Update and Delete buttons */
+button.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #2196F3; /* Link color */
+    font-weight: bold;
+}
+
+button.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ensure full height layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Flex column layout */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Make the main content grow */
+.sales-form {
+    flex: 1;
+}
+
+/* Footer styles */
+.page-footer {
+    background-color:#162938;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Common button style for links */
+.table-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Update button style */
+.button-update {
+    background-color: #007bff; /* Blue background for update */
+}
+
+.button-update:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button-update:active {
+    background-color: #004085; /* Even darker blue when clicked */
+}
+
+/* === Navbar Styles === */
+nav.navbar {
+    background-color: #162938; /* Dark background */
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f3ba36; /* Logo color */
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: medium;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.navbar-links a:hover {
+    background-color: #f3ba36;
+    color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+    padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+    margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+    background-color: #162938;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* General Table Styling */
+table#credits {
+    border-collapse: collapse; /* Remove gaps between table cells */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Add spacing above the table */
+    font-size: 14px; /* Set font size */
+    background-color: #ffffff; /* White background for the table */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Header Row Styling */
+  table#credits thead tr th {
+    background-color: #162938; /* Dark background for header */
+    color: #f3ba36; /* Gold text color */
+    padding: 12px; /* Add padding to header cells */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    border-bottom: 2px solid #ddd; /* Add a border below the header */
+  }
+  
+  /* Body Row Styling */
+  table#credits tbody tr td {
+    padding: 10px; /* Add padding to body cells */
+    border: 1px solid #ddd; /* Add a border around cells */
+    color: #333; /* Dark text color */
+  }
+  
+  /* Alternating Row Colors */
+  table#credits tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+  }
+  
+  table#credits tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+  }
+  
+  /* Hover Effect */
+  table#credits tbody tr:hover {
+    background-color: #e8f4ff; /* Light blue background on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  /* Update Button Styling */
+  a.button-update.table-button {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
+    padding: 6px 12px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 12px; /* Smaller font size */
+    display: inline-block; /* Inline-block for proper spacing */
+  }
+  
+  a.button-update.table-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Delete Button Styling */
+  button.delete-button {
+    background-color: #f44336; /* Red background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    padding: 6px 12px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 12px; /* Smaller font size */
+  }
+  
+  button.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Responsive Table Adjustments */
+  @media (max-width: 768px) {
+    table#credits thead {
+      display: none; /* Hide table headers on small screens */
+    }
+  
+    table#credits tbody tr {
+      display: block; /* Make rows block elements */
+      margin-bottom: 15px; /* Add spacing between rows */
+      border: 1px solid #ddd; /* Add border around rows */
+      border-radius: 4px; /* Rounded corners */
+      padding: 10px; /* Add padding inside rows */
+    }
+  
+    table#credits tbody td {
+      display: flex; /* Use flexbox for layout */
+      justify-content: space-between; /* Space between label and value */
+      padding: 8px 0; /* Add padding to cells */
+      border: none; /* Remove cell borders */
+    }
+  
+    table#credits tbody td::before {
+      content: attr(data-label); /* Use data-label attribute as a label */
+      font-weight: bold; /* Bold text for labels */
+      color: #555; /* Gray text for labels */
+      margin-right: 10px; /* Add spacing after label */
+    }
+  }
+

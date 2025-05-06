@@ -1,0 +1,221 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light background for readability */
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar Styles */
+  aside.sidebar {
+    background-color: #162938; /* Dark sidebar background */
+    color: white;
+    padding: 20px;
+    width: 240px;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  aside.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  aside.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  aside.sidebar nav a:hover {
+    background-color: #34495e; /* Hover effect */
+  }
+  
+  aside.sidebar nav a.active {
+    background-color: #f3ba36;
+    color: #162938;
+  }
+  
+  /* Main Content Styles */
+  .sales-form {
+    margin-left: 270px; /* Space for the fixed sidebar */
+    padding: 20px;
+    background-color: #162938;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width:500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 500px;
+    color: #f3ba36;
+  }
+  
+  .sales-form h2 {
+    text-align: center;
+    color: #f3ba36;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Group Styles */
+  .form-group {
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #f3ba36;
+    outline: none;
+  }
+  
+  /* Button Styles */
+  button[type='submit'] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  button[type='submit']:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer Styles */
+  footer.page-footer {
+    background-color: #162938;
+    color: grey;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: auto;
+    border-top: 1px solid #ccc;
+  }
+
+  /* === Navbar Styles === */
+nav.navbar {
+  background-color: #162938; /* Dark background */
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f3ba36; /* Logo color */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: medium;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #f3ba36;
+  color: #162938; /* Change color on hover */
+}
+
+/* Space below the navbar so content doesn't overlap */
+body {
+  padding-top: 60px; /* Adjust this value according to navbar height */
+}
+
+/* === Main Content === */
+.page-container {
+  margin-top: 60px; /* Avoid overlap with fixed navbar */
+}
+
+/* === Footer === */
+.page-footer {
+  background-color: #162938;
+  color: grey;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up all available space */
+.sales-form {
+  flex: 1;
+}
+
+/* Footer styling */
+footer.page-footer {
+  background-color: #162938; /* Optional: Add a background color */
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push the footer to the bottom */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+
+
+
+  

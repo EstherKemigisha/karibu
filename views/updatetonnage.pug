@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Update Tonnage
+    link(rel='stylesheet' href='/css/styles.css')
+  body
+    .page-wrapper
+      .update-form
+        h2 Update Tonnage for #{produce.produceName}
+        form(action=`/updateTonnage/${produce._id}` method='POST')
+          .form-group
+            label(for='additionalTonnage') Additional Tonnage (kgs):
+            input#additionalTonnage(type='number' name='additionalTonnage' required)
+          button(type='submit') Update Tonnage

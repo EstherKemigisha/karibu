@@ -1,77 +1,225 @@
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-     title Payment Request
+//-     link(
+//-       rel='stylesheet'
+//-       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+//-       integrity='sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=='
+//-       crossorigin='anonymous'
+//-       referrerpolicy='no-referrer'
+//-     )
+//-     link(rel='stylesheet' href='/css/credit.css')
+
+//-   body
+//-     nav.navbar
+//-       .navbar-container
+//-         .logo
+//-           a(href='/') Karibu Groceries
+//-         .navbar-links
+//-           a(href='/') Home
+//-           a(href='/addProduce') Procurement
+//-           a(href='/produceList') Produce List
+//-           a(href='/addSale/6817e3218f385583b1ed79b6') Sales
+//-           a(href='/salesList') Sales List
+//-           a(href='/credit') Credit Payment
+//-           a(href='/creditList') Credit List
+//-           a(href='/logout') Logout
+
+//-     .page-wrapper
+//-       form#form(action='/updateCredit?id=' + credit._id method='post')
+//-         .payment-request-container
+//-           h2 Credit 
+
+//-           .contact-details
+//-             .input-container
+//-               i.fas.fa-user.icon
+//-               label(for='sendTo') Buyer&apos;s Name
+//-               input#name(type='text' value='' name='buyersname')
+
+//-             .form-group.input-group
+//-               div
+//-                 i.fas.fa-id-card.icon
+//-                 label(for='nationalid') National ID (NIN)
+//-                 input#nationalid(type='text' value='' name='nationalid')
+//-               .input-container
+//-                 i.fas.fa-map-marker-alt.icon
+//-                 label(for='address') Address
+//-                 input#address(type='text' placeholder='' name='address')
+
+//-             .form-group.input-group
+//-               div
+//-                 i.fas.fa-phone.icon
+//-                 label(for='contact') Contact (Valid)
+//-                 input#contact(type='text' value='' name='contact')
+//-               div
+//-                 i.fas.fa-money-bill-wave.icon
+//-                 label(for='amountdue') Amount-Due (UgX)
+//-                 input#amountdue(type='text' placeholder='' name='amountD')
+
+//-             .form-group.input-group
+//-               div
+//-                 i.fas.fa-weight-hanging.icon
+//-                 label(for='tonnage') Tonnage
+//-                 input#tonnage(type='text' value='' name='tonnage')
+//-               div
+//-                 i.fas.fa-user-tie.icon
+//-                 label(for='salesagent') Sales Agent Name
+//-                 input#salesagent(type='text' placeholder='' name='salesagent')
+
+//-             .form-group.input-group
+//-               div
+//-                 i.fas.fa-carrot.icon
+//-                 label(for='produce') Produce Name
+//-                 input#produce(type='text' name='producename' list='produce-options' placeholder='Select or type produce')
+//-                 datalist#produce-options
+//-                   option(value='Beans')
+//-                   option(value='Grain Maize')
+//-                   option(value='Cow Peas')
+//-                   option(value='G-nuts')
+//-                   option(value='Soybeans')
+//-               div
+//-                 i.fas.fa-leaf.icon
+//-                 label(for='producetype') Produce Type
+//-                 input#producetype(type='text' list='produce-types' placeholder='' name='producetype')
+//-                 datalist#produce-types
+//-                   option(value='Legume')
+//-                   option(value='Cereal')
+//-                   option(value='Grain')
+
+//-           .request-details
+//-             .form-group.input-group
+//-               div
+//-                 i.fas.fa-coins.icon
+//-                 label(for='amount') Amount
+//-                 input#amount(type='number' value='' name='amount')
+//-               div
+//-                 i.fas.fa-calendar-alt.icon
+//-                 label(for='dueDate') Due Date
+//-                 input#dueDate(type='date' value='' name='duedate')
+
+//-           .buttons
+//-             button.cancel-button Cancel
+//-             button.request-payment-button(type='submit') Save Payment
+
+//-     footer
+//-       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+//-     script(src='/js/deffered.js')
+
+
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Payment Request
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' integrity='sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==' crossorigin='anonymous' referrerpolicy='no-referrer')
-  link(rel='stylesheet' href='/css/credit.css')
-.form#form(action='/updateCredit?id='+credit._id method='post')
-.payment-request-container
-  h2 Credit Payment 
-  .contact-details
-    .input-container
-      i.fas.fa-user.icon
-      label(for='sendTo') Buyer&apos;s Name
-      input#name(type='text' value='' name="buyersname")
-    .form-group.input-group
-      div
-        i.fas.fa-id-card.icon
-        label(for='nationalid')  National ID (NIN)
-        input#nationalid(type='text' value='' name="nationalid")
-      .input-container
-        i.fas.fa-map-marker-alt.icon
-        label(for='address') Address
-        input#address(type='text' placeholder='' name="address")
-    .form-group.input-group
-      div
-        i.fas.fa-phone.icon
-        label(for='contact') Contact (Valid)
-        input#contact(type='text' value='' name="contact")
-      div
-        i.fas.fa-money-bill-wave.icon
-        label(for='amountdue') Amount-Due (UgX)
-        input#amountdue(type='text' placeholder='' name="amountD")
-    .form-group.input-group
-      div
-        i.fas.fa-weight-hanging.icon
-        label(for='tonnage') Tonnage
-        input#tonnage(type='text' value='' name="tonnage")
-      div
-        i.fas.fa-user-tie.icon
-        label(for='salesagent') Sales Agent Name
-        input#salesagent(type='text' placeholder='' name="salesagent")
-    .form-group.input-group
-      div
-        i.fas.fa-carrot.icon
-        label(for='produce') Produce Name
-        input#produce(type='text' name='producename' list='produce-options' placeholder='Select or type produce')
-        datalist#produce-options
-          option(value='Beans')
-          option(value='Grain Maize')
-          option(value='Cow Peas')
-          option(value='G-nuts')
-          option(value='Soybeans')
-      div
-        i.fas.fa-leaf.icon
-        label(for='producetype') Produce Type
-        input#producetype(type='text' list='produce-types' placeholder='' name="producetype")
-      datalist#produce-types
-        option(value='Legume')
-        option(value='Cereal')
-        option(value='Grain')
-  .request-details
-    .form-group.input-group
-      div
-        i.fas.fa-coins.icon
-        label(for='amount') Amount
-        input#amount(type='number' value='' name="amount")
-      div
-        i.fas.fa-calendar-alt.icon
-        label(for='dueDate') Due Date
-        input#dueDate(type='date' value='' name="duedate")
-  .buttons
-    button.cancel-button Cancel
-    button.request-payment-button(type='submit')  Save  Payment
-footer
-   p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.     
-script(src='/js/deffered.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Payment Request
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+    )
+    link(rel='stylesheet' href='/css/credit.css')
+
+  body
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries 
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6818f7cac7d9f13a6c6de5ee') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit 
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
+
+    // Credit Form
+    form.form#form(action='/updateCredit?id=' + credit._id method='POST')
+      .payment-request-container
+        h2 Credits
+
+        // Contact Details Section
+        .contact-details
+          .form-group.input-group
+            div
+              i.fas.fa-user
+              label(for='sendTo') Buyer's Name
+              input#name(type='text' name='buyersname' value=credit.buyersname required)
+
+          .form-group.input-group
+            div
+              i.fas.fa-id-card
+              label(for='nationalid') National ID (NIN)
+              input#nationalid(type='text' name='nationalid' value=credit.nationalid required)
+            div
+              i.fas.fa-map-marker-alt
+              label(for='address') Address
+              input#address(type='text' name='address' value=credit.address required)
+
+          .form-group.input-group
+            div
+              i.fas.fa-phone
+              label(for='contact') Contact
+              input#contact(type='text' name='contact' value=credit.contact required)
+            div
+              i.fas.fa-money-bill-wave
+              label(for='amountdue') Amount Due (UgX)
+              input#amountdue(type='text' name='amountD' value=credit.amountD required)
+
+          .form-group.input-group
+            div
+              i.fas.fa-weight-hanging
+              label(for='tonnage') Tonnage
+              input#tonnage(type='text' name='tonnage' value=credit.tonnage required)
+            div
+              i.fas.fa-user-tie
+              label(for='salesagent') Sales Agent Name
+              input#salesagent(type='text' name='salesagent' value=credit.salesagent required)
+
+          .form-group.input-group
+            div
+              i.fas.fa-carrot
+              label(for='produce') Produce Name
+              input#produce(type='text' name='producename' value=credit.producename list='produce-options' required)
+              datalist#produce-options
+                option(value='Beans')
+                option(value='Grain Maize')
+                option(value='Cow Peas')
+                option(value='G-nuts')
+                option(value='Soybeans')
+            div
+              i.fas.fa-leaf
+              label(for='producetype') Produce Type
+              input#producetype(type='text' name='producetype' value=credit.producetype list='produce-types' required)
+              datalist#produce-types
+                option(value='Legume')
+                option(value='Cereal')
+                option(value='Grain')
+
+        // Request Details Section
+        .request-details
+          .form-group.input-group
+            div
+              i.fas.fa-coins
+              label(for='amount') Amount
+              input#amount(type='number' name='amount' value=credit.amount required)
+            div
+              i.fas.fa-calendar-alt
+              label(for='dueDate') Due Date
+              input#dueDate(type='date' name='duedate' value=credit.duedate required)
+
+        // Buttons Section
+        .buttons
+          button.request-payment-button(type='submit') Update Credit
+
+    // Footer
+    footer
+      p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved
+
+    // Scripts
+    script(src="/js/credits.js")

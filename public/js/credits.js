@@ -1,145 +1,85 @@
-
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form');
-  const cancelBtn = document.querySelector('.cancel-button');
 
-  
-  const fieldRules = {
-    name: { required: true, message: "Please enter buyer's name" },
-    nationalid: { 
-      required: true, 
-      pattern: /^\d{13}$/, 
-      message: "NIN must be 13 digits" 
-    },
-    address: { required: true, message: "Please enter address" },
-    contact: { 
-      required: true, 
-      pattern: /^\d{10}$/, 
-      message: "Phone must be 10 digits" 
-    },
-    amountdue: { 
-      required: true, 
-      isNumber: true, 
-      message: "Amount must be a number" 
-    },
-    tonnage: { 
-      required: true, 
-      isNumber: true, 
-      message: "Tonnage must be a number" 
-    },
-    salesagent: { required: true, message: "Please enter agent name" },
-    produce: { required: true, message: "Please select produce" },
-    producetype: { required: true, message: "Please select produce type" },
-    amount: { 
-      required: true, 
-      isNumber: true, 
-      message: "Amount must be a number" 
-    },
-    dueDate: { 
-      required: true, 
-      isFutureDate: true, 
-      message: "Date must be in future" 
-    }
+  const fields = {
+    buyersname: document.querySelector('input[name="buyersname"]'),
+    nationalid: document.querySelector('input[name="nationalid"]'),
+    address: document.querySelector('input[name="address"]'),
+    contact: document.querySelector('input[name="contact"]'),
+    amountD: document.querySelector('input[name="amountD"]'),
+    tonnage: document.querySelector('input[name="tonnage"]'),
+    salesagent: document.querySelector('input[name="salesagent"]'),
+    producename: document.querySelector('input[name="producename"]'),
+    producetype: document.querySelector('input[name="producetype"]'),
+    amount: document.querySelector('input[name="amount"]'),
+    duedate: document.querySelector('input[name="duedate"]')
   };
 
-  
-  function checkField(fieldId) {
-    const field = document.getElementById(fieldId);
-    const value = field.value.trim();
-    const rules = fieldRules[fieldId];
-    
-    
-    field.classList.remove('error');
-    const oldError = field.nextElementSibling;
-    if (oldError && oldError.classList.contains('error-msg')) {
-      oldError.remove();
-    }
-
-    
-    if (rules.required && !value) {
-      showError(field, rules.message);
-      return false;
-    }
-
-    
-    if (rules.pattern && !rules.pattern.test(value)) {
-      showError(field, rules.message);
-      return false;
-    }
-
-  
-    if (rules.isNumber && isNaN(value)) {
-      showError(field, rules.message);
-      return false;
-    }
-
-  
-    if (rules.isFutureDate) {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      if (new Date(value) < today) {
-        showError(field, rules.message);
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  
-  function showError(field, message) {
-    field.classList.add('error');
-    const errorMsg = document.createElement('div');
-    errorMsg.className = 'error-msg';
-    errorMsg.textContent = message;
-    errorMsg.style.color = 'red';
-    errorMsg.style.fontSize = '0.8rem';
-    field.parentNode.insertBefore(errorMsg, field.nextSibling);
-  }
-
-  
-  function validateForm() {
+  form.addEventListener('submit', function (e) {
     let isValid = true;
-    for (const fieldId in fieldRules) {
-      if (!checkField(fieldId)) {
+
+    Object.entries(fields).forEach(([key, input]) => {
+      const value = input.value.trim();
+      const errorId = `${input.id}-error`;
+      removeError(input, errorId);
+
+      if (value === '') {
+        showError(input, 'This field is required.', errorId);
         isValid = false;
-      }
-    }
-    return isValid;
-  }
-
-  
-  for (const fieldId in fieldRules) {
-    const field = document.getElementById(fieldId);
-    if (field) {
-      field.addEventListener('blur', function() {
-        checkField(fieldId);
-      });
-    }
-  }
-
-
-  cancelBtn.addEventListener('click', function() {
-    if (confirm('Cancel this form?')) {
-      window.location.href = '/';
-    }
-  });
-
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (validateForm()) {
-    
-      const submitBtn = document.querySelector('.request-payment-button');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+      } else if (key === 'buyersname' && !/^\w+\s+\w+/.test(value)) {
+        showError(input, 'Please enter at least two names (e.g., Firstname Lastname).', errorId);
+        isValid = false;
       
-    
-      form.submit();
+      } else {
+        if (key === 'contact' && !/^\+256\d{9}$/.test(value)) {
+          showError(input, 'Enter a valid phone number starting with +256 followed by 9 digits.', errorId);
+          isValid = false;
+        }
+        if (['amountD', 'amount', 'tonnage'].includes(key)) {
+          if (isNaN(value) || Number(value) < 100) {
+            showError(input, 'Enter a valid number greater than or equal to 100.', errorId);
+            isValid = false;
+          }
+        }
+        if (key === 'nationalid' && !/^[A-Za-z]{2}\d{12}$/.test(value)) {
+          showError(input, 'NIN must start with 2 letters followed by 12 digits.', errorId);
+          isValid = false;
+        }
+        if (key === 'duedate') {
+          const dueDate = new Date(value);
+          const today = new Date();
+          if (dueDate <= today) {
+            showError(input, 'Due date must be in the future.', errorId);
+            isValid = false;
+          }
+        }
+      }
+    });
+
+    // Stop submission if not valid
+    if (!isValid) {
+      e.preventDefault(); // Prevent form refresh or submission
     }
   });
+
+  function showError(input, message, errorId) {
+    input.style.border = '2px solid red';
+    const error = document.createElement('div');
+    error.className = 'error-message';
+    error.id = errorId;
+    error.style.color = 'red';
+    error.style.fontSize = '0.85em';
+    error.textContent = message;
+    input.parentNode.appendChild(error);
+  }
+
+  function removeError(input, errorId) {
+    input.style.border = '1px solid #ccc';
+    const oldError = document.getElementById(errorId);
+    if (oldError) oldError.remove();
+  }
 });
+
+
 
   

@@ -4,95 +4,110 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Store Dashboard
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    link(
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'
+      integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    )
     link(rel='stylesheet' href='/css/managerdash.css')
     script(src='https://cdn.jsdelivr.net/npm/chart.js')
   body
-    .page-wrapper
-      .dashboard
-        aside.sidebar
-          .logo(style='color: #f3ba36;') Manager Maganjo
-          .profile
-            img.profile-img(src='/imgs/mm.jpg' alt='Profile')
-          nav
-            a(href='/')
-              i.fa-solid.fa-house
-              | Home
-            br
-            a(href='/addProduce')
-              i.fas.fa-boxes
-              | Procurement
-            br
-            a(href='/produceList')
-              i.fas.fa-clipboard-list
-              | Produce List
-            br
-            a(href='/addSale')
-              i.fas.fa-cash-register
-              | Sales
-            br
-            a(href='/salesList')
-              i.fas.fa-clipboard-list
-              | Sales List
-            br
-            a(href='/logout')
-              i.fa-solid.fa-right-from-bracket
-              | Logout
-            br
-            a(href='/')
-              i.fas.fa-arrow-left
-              | Back
-        main.content
-          section.overview
-            .card.products
-              .card-title PRODUCTS
-              .card-value.cardi 249
-            .card.categories
-              .card-title SALES
-              .card-value.cardi 25
-            .card.customers
-              .card-title IN STOCK
-              .card-value.cardi 1500
-            .card.alerts
-              .card-title OUT OF STOCK
-              .card-value.cardi 56
+    // Navbar
+    nav.navbar
+      .navbar-container
+        .logo
+          a(href='/') Karibu Groceries 
+        .navbar-links
+          a(href='/') Home
+          a(href='/addProduce') Procurement
+          a(href='/produceList') Produce List
+          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
+          a(href='/salesList') Sales List
+          a(href='/credit') Credit Payment
+          a(href='/creditList') Credit List
+          a(href='/logout') Logout
 
-          section.performance-highlights
-            .highlight-card
-              h2 Top Selling Products
-              .product-list
-                .product-item
-                  .product-name Beans
-                  .product-revenue 30m UGX
-                .product-item
-                  .product-name Groundnuts
-                  .product-revenue 45m UGX
-                .product-item
-                  .product-name Maize
-                  .product-revenue 20m UGX
+    // Notification Section
+    section.notifications
+      .notification-icon(onclick="toggleNotifications()")
+        i.fas.fa-bell
+        span.notification-count 3
+      #notificationBox.notification-box(style="display: none;")
+        ul
+          li New stock has been added to the inventory.
+          li Sales report for March is ready.
+          li Low stock alert: Beans are running out.
 
-            .highlight-card
-              h2 Top Sellers By Order Count
-              .seller-list
-                .seller-item
-                  .seller-name Elly Mukisa
-                  .order-count 15 orders
-                .seller-item
-                  .seller-name Joy Tendo
-                  .order-count 12 orders
+    // Main Content
+    main.content
+      // Overview Section
+      section.overview
+        .card.products
+          .card-title PRODUCTS
+          .card-value.cardi #{totalProducts}
+        .card.categories
+          .card-title SALES
+          .card-value.cardi #{totalSales}
+        .card.customers
+          .card-title IN STOCK
+          .card-value.cardi #{inStockCount}
+        .card.alerts
+          .card-title OUT OF STOCK
+          .card-value.cardi #{lowStockCount}
 
-            .highlight-card
-              h2 Customers By Purchases
-              .customer-list
-                .customer-item
-                  .customer-name Shelby Goode
-                  .purchase-count 8 purchases
-                .customer-item
-                  .customer-name Robert Bacins
-                  .purchase-count 6 purchases
-                .customer-item
-                  .customer-name John Carlo
-                  .purchase-count 5 purchases
+      // Performance Highlights Section
+      section.performance-highlights
+        .highlight-card
+          h2 Top Selling Products
+          .product-list
+            .product-item
+              .product-name Beans
+              .product-revenue 30m UGX
+            .product-item
+              .product-name Groundnuts
+              .product-revenue 45m UGX
+            .product-item
+              .product-name Maize
+              .product-revenue 20m UGX
+
+        .highlight-card
+          h2 Top Sellers By Order
+          .seller-list
+            .seller-item
+              .seller-name Elly Mukisa
+              .order-count 15 orders
+            .seller-item
+              .seller-name Joy Tendo
+              .order-count 12 orders
+
+        .highlight-card
+          h2 Customers By Purchases
+          .customer-list
+            .customer-item
+              .customer-name Jane
+              .purchase-count 8 purchases
+            .customer-item
+              .customer-name King
+              .purchase-count 6 purchases
+            .customer-item
+              .customer-name Israel
+              .purchase-count 5 purchases
+
+    // Footer
     footer.dashboard-footer
       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
+
+    // JavaScript
+    script.
+      function toggleNotifications() {
+        const box = document.getElementById("notificationBox");
+        if (box.style.display === "none" || box.style.display === "") {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      }
     script(src='/js/managerdash.js')
+
