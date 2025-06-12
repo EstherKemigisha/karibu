@@ -1,68 +1,4 @@
 //- doctype html
-//- html
-//-   head
-//-     meta(charset='UTF-8')
-//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-//-     title Add Produce
-//-     link(rel='stylesheet', href='/css/produce.css')
-//-   body
-//-     form.form#form(action="/addProduce" method="POST")
-//-       .form-container
-//-         .form-header
-//-           h2 Add Stock
-//-           button.close-button(type='button') &times;
-//-         .form-group
-//-           label(for='produce') Produce
-//-           select#produce(name='produce' required)
-//-             option(value='') Select Produce
-//-             option(value='maize') Maize
-//-             option(value='cowpeas') Cowpeas
-//-             option(value='beans') Beans
-//-             option(value='soybeans') Soybeans
-//-         .form-group
-//-           label(for='type') Type
-//-           select#type(name='type' required)
-//-             option(value='') Select Type
-//-             option(value='legume') Legume
-//-             option(value='cereal') Cereal
-//-         .form-group
-//-           label(for='tonnage') Tonnage (kgs)
-//-           input#tonnage(type='number', name='tonnage', required)
-//-         .form-group
-//-           label(for='buyingPrice') Buying Price (Ugx)
-//-           input#buyingPrice(type='number', name='buyingPrice', required)
-//-         .form-group
-//-           label(for='sellingPrice') Selling Price (Ugx)
-//-           input#sellingPrice(type='number', name='sellingPrice', required)
-//-         .form-group
-//-           label(for='branch') Branch
-//-           select#branch(name='branch' required)
-//-             option(value='') Select Branch
-//-             option(value='mattuga') Mattuga
-//-             option(value='maganjo') Maganjo
-//-         .form-group
-//-           label(for='dealers') Dealers
-//-           input#dealers(type='text', name='dealers', required)
-//-         .form-group
-//-           label(for='paymentmethod') Payment Method
-//-           select#paymentmethod(name='paymentmethod' required)
-//-             option(value='') Select Method
-//-             option(value='cash') Cash
-//-             option(value='mobilemoney') Mobile Money
-//-             option(value='banktransfer') Bank Transfer
-//-         .form-group
-//-           label(for='date') Date
-//-           input#date(type='date', name='date', required)
-//-         .form-group
-//-           label(for='time') Time
-//-           input#time(type='time', name='time', required)
-//-         button.submit-button(type='submit') Save
-//-     //- footer
-//-     //-   p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved. 
-//-     script(src='/js/produce.js')
-
-
-//- doctype html
 doctype html
 html
   head
@@ -83,11 +19,11 @@ html
         .navbar-links
           a(href='/') Home
           a(href='/addProduce') Procurement
-          a(href='/produceList') Produce List
-          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
-          a(href='/salesList') Sales List
-          a(href='/credit') Credit Payment
-          a(href='/creditList') Credit List
+          //- a(href='/produceList') Produce List
+          a(href='/addSale/6818bd19927586a513ba2ec5') Sales
+          //- a(href='/salesList') Sales List
+          a(href='/credit')  Record Credit
+          //- a(href='/creditList') Credit List
           a(href='/logout') Logout
 
     // Main Content
@@ -101,7 +37,7 @@ html
           // Produce Field
           .form-group
             label(for='produce') Produce
-            select#produce(name='produce' required)
+            select#produce(name='produce')
               option(value='') Select Produce
               option(value='maize') Maize
               option(value='cowpeas') Cowpeas
@@ -111,7 +47,7 @@ html
           // Type Field
           .form-group
             label(for='type') Type
-            select#type(name='type' required)
+            select#type(name='type')
               option(value='') Select Type
               option(value='legume') Legume
               option(value='cereal') Cereal
@@ -119,22 +55,22 @@ html
           // Tonnage Field
           .form-group
             label(for='tonnage') Tonnage (kgs)
-            input#tonnage(type='number' name='tonnage' required)
+            input#tonnage(type='number' name='tonnage' )
 
           // Buying Price Field
           .form-group
             label(for='buyingPrice') Buying Price (Ugx)
-            input#buyingPrice(type='number' name='buyingPrice' required)
+            input#buyingPrice(type='number' name='buyingPrice' )
 
           // Selling Price Field
           .form-group
             label(for='sellingPrice') Selling Price (Ugx)
-            input#sellingPrice(type='number' name='sellingPrice' required)
+            input#sellingPrice(type='number' name='sellingPrice' )
 
           // Branch Field
           .form-group
             label(for='branch') Branch
-            select#branch(name='branch' required)
+            select#branch(name='branch' )
               option(value='') Select Branch
               option(value='mattuga') Mattuga
               option(value='maganjo') Maganjo
@@ -142,12 +78,12 @@ html
           // Dealers Field
           .form-group
             label(for='dealers') Dealers
-            input#dealers(type='text' name='dealers' required)
+            input#dealers(type='text' name='dealers' )
 
           // Payment Method Field
           .form-group
             label(for='paymentmethod') Payment Method
-            select#paymentmethod(name='paymentmethod' required)
+            select#paymentmethod(name='paymentmethod' )
               option(value='') Select Method
               option(value='cash') Cash
               option(value='mobilemoney') Mobile Money
@@ -156,12 +92,12 @@ html
           // Date Field
           .form-group
             label(for='date') Date
-            input#date(type='date' name='date' required)
+            input#date(type='date' name='date' )
 
           // Time Field
           .form-group
             label(for='time') Time
-            input#time(type='time' name='time' required)
+            input#time(type='time' name='time' )
 
           // Submit Button
           button.submit-button(type='submit') Save

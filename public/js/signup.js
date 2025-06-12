@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   // --- Switch Between Login and Register Forms ---
   const switchToRegister = document.getElementById('switchToRegister');
@@ -40,112 +41,240 @@ document.addEventListener('DOMContentLoaded', function () {
   roleSelect.addEventListener('change', toggleBranchVisibility);
 
   // --- Login Form Validation ---
-  document.getElementById('login').addEventListener('submit', function (e) {
-    const email = document.getElementById('email');
-    const password = document.getElementById('loginPassword');
+  document.getElementById('loginform').addEventListener('submit', function (e) {
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('loginPassword');
     let valid = true;
 
-    if (!email.value) {
-      showError(email, 'Email is required');
+    clearErrors(this); // Clear previous errors for the login form
+
+    if (!emailInput.value.trim()) {
+      showError(emailInput, 'Email is required.');
       valid = false;
-    } else if (!isValidEmail(email.value)) {
-      showError(email, 'Please enter a valid email');
+    } else if (!isValidEmail(emailInput.value.trim())) {
+      showError(emailInput, 'Please enter a valid email.');
       valid = false;
     }
 
-    if (!password.value) {
-      showError(password, 'Password is required');
+    if (!passwordInput.value) {
+      showError(passwordInput, 'Password is required.');
       valid = false;
     }
 
-    if (!valid) e.preventDefault();
+    if (!valid) {
+      e.preventDefault();
+    }
   });
 
   // --- Register Form Validation ---
-  document.getElementById('register').addEventListener('submit', function (e) {
-    const email = document.getElementById('registerEmail');
-    const password = document.getElementById('registerPassword');
-    const confirm = document.getElementById('confirmPassword');
-    const role = document.getElementById('select');
+  document.getElementById('form').addEventListener('submit', function (e) {
+    const fullNameInput = document.getElementById('fullName');
+    const registerEmailInput = document.getElementById('registerEmail');
+    const registerPasswordInput = document.getElementById('registerPassword');
+    const roleSelect = document.getElementById('select');
     let valid = true;
 
-    if (!email.value) {
-      showError(email, 'Email is required');
+    clearErrors(this); // Clear previous errors for the register form
+
+    if (!fullNameInput.value.trim()) {
+      showError(fullNameInput, 'Full Name is required.');
       valid = false;
-    } else if (!isValidEmail(email.value)) {
-      showError(email, 'Please enter a valid email');
+    } else if (fullNameInput.value.trim().split(' ').length < 2) {
+      showError(fullNameInput, 'Please enter both first and last name.');
+      valid = false;
+    }
+    
+
+    if (!registerEmailInput.value.trim()) {
+      showError(registerEmailInput, 'Email is required.');
+      valid = false;
+    } else if (!isValidEmail(registerEmailInput.value.trim())) {
+      showError(registerEmailInput, 'Please enter a valid email.');
       valid = false;
     }
 
-    if (!password.value) {
-      showError(password, 'Password is required');
+    if (!registerPasswordInput.value) {
+      showError(registerPasswordInput, 'Password is required.');
       valid = false;
-    } else if (!isValidPassword(password.value)) {
-      showError(
-        password,
-        'Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character'
-      );
+    } else if (registerPasswordInput.value.length < 8) {
+      showError(registerPasswordInput, 'Password must be at least 8 characters long.');
       valid = false;
-    }
-
-    if (password.value !== confirm.value) {
-      showError(confirm, 'Passwords do not match');
+    }else if (!/[!@#$%^&*(),.?":{}|<>]/.test(registerPasswordInput.value)) {
+      showError(registerPasswordInput, 'Password must contain at least one special character.');
       valid = false;
     }
 
-    if (!role.value) {
-      showError(role, 'Please select a role');
+    if (!roleSelect.value) {
+      showError(roleSelect, 'Please select a role.');
       valid = false;
     }
 
-    if (!valid) e.preventDefault();
-  });
-
-  // Real-time password confirmation check
-  document.getElementById('confirmPassword').addEventListener('input', function () {
-    const password = document.getElementById('registerPassword').value;
-    const confirm = this.value;
-
-    if (password && confirm && password !== confirm) {
-      showError(this, 'Passwords do not match');
-    } else {
-      clearError(this);
+    if (!valid) {
+      e.preventDefault();
     }
   });
 
   // --- Helper Functions ---
   function showError(input, message) {
     const formControl = input.parentElement;
-    let error = formControl.querySelector('.error-message');
-
-    if (!error) {
-      error = document.createElement('small');
-      error.className = 'error-message';
-      formControl.appendChild(error);
-    }
-
-    error.textContent = message;
-    error.style.color = 'red'; // Set error message color to red
-    input.classList.add('error');
+    const errorSpan = formControl.querySelector('.error-message');
+    errorSpan.textContent = message;
   }
 
-  function clearError(input) {
-    const formControl = input.parentElement;
-    const error = formControl.querySelector('.error-message');
-    if (error) error.remove();
-    input.classList.remove('error');
+  function clearErrors(form) {
+    const errorSpans = form.querySelectorAll('.form-control .error-message');
+    errorSpans.forEach(span => {
+      span.textContent = '';
+    });
   }
 
   function isValidEmail(email) {
-    // Regex for validating email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
+});
 
-  function isValidPassword(password) {
-    // Regex for validating password
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
+
+
+//login
+document.addEventListener('DOMContentLoaded', function () {
+  // --- Switch Between Login and Register Forms ---
+  const switchToRegister = document.getElementById('switchToRegister');
+  const switchToLogin = document.getElementById('switchToLogin');
+  const loginFormSection = document.getElementById('login');
+  const registerFormSection = document.getElementById('register');
+
+  switchToRegister.addEventListener('click', function (e) {
+    e.preventDefault();
+    loginFormSection.classList.remove('active');
+    registerFormSection.classList.add('active');
+  });
+
+  switchToLogin.addEventListener('click', function (e) {
+    e.preventDefault();
+    registerFormSection.classList.remove('active');
+    loginFormSection.classList.add('active');
+  });
+
+  // --- Login Form Validation ---
+  document.getElementById('login').addEventListener('submit', function (e) {
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('loginPassword');
+    let valid = true;
+
+    clearErrors(this); // Clear previous errors for the login form
+
+    if (!emailInput.value.trim()) {
+      showError(emailInput, 'Email is required.');
+      valid = false;
+    } else if (!isValidEmail(emailInput.value.trim())) {
+      showError(emailInput, 'Please enter a valid email.');
+      valid = false;
+    }
+
+    if (!passwordInput.value) {
+      showError(passwordInput, 'Password is required.');
+      valid = false;
+    } else if (passwordInput.value.length < 8) {
+      showError(passwordInput, 'Password must be at least 8 characters long.');
+      valid = false;
+    }else if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput.value)) {
+    showError(passwordInput, 'Password must contain at least one special character.');
+    valid = false;
+  }
+  
+
+    if (!valid) {
+      e.preventDefault();
+    }
+  });
+
+  // --- Register Form Validation ---
+  document.getElementById('registerForm').addEventListener('submit', function (e) {
+    const usernameInput = document.getElementById('registerUsername');
+    const registerEmailInput = document.getElementById('registerEmail');
+    const registerPasswordInput = document.getElementById('registerPassword');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const roleSelect = document.getElementById('select');
+    let valid = true;
+
+    clearErrors(this); // Clear previous errors for the register form
+
+    if (!usernameInput.value.trim()) {
+      showError(usernameInput, 'Username is required.');
+      valid = false;
+    }
+
+    if (!registerEmailInput.value.trim()) {
+      showError(registerEmailInput, 'Email is required.');
+      valid = false;
+    } else if (!isValidEmail(registerEmailInput.value.trim())) {
+      showError(registerEmailInput, 'Please enter a valid email.');
+      valid = false;
+    }
+
+    if (!registerPasswordInput.value) {
+      showError(registerPasswordInput, 'Password is required.');
+      valid = false;
+    } else if (registerPasswordInput.value.length < 8) {
+      showError(registerPasswordInput, 'Password must be at least 8 characters long.');
+      valid = false;
+    }
+
+    if (confirmPasswordInput.value !== registerPasswordInput.value) {
+      showError(confirmPasswordInput, 'Passwords do not match.');
+      valid = false;
+    }
+
+    if (!roleSelect.value) {
+      showError(roleSelect, 'Please select a role.');
+      valid = false;
+    }
+
+    if (!valid) {
+      e.preventDefault();
+    }
+  });
+
+  // --- Helper Functions ---
+  function showError(input, message) {
+    const formControl = input.parentElement;
+    const errorSpan = formControl.querySelector('.error-message');
+    errorSpan.textContent = message;
+  }
+
+  function clearErrors(form) {
+    const errorSpans = form.querySelectorAll('.form-control .error-message');
+    errorSpans.forEach(span => {
+      span.textContent = '';
+    });
+  }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 });
+
+
+ // --- Branch Visibility Logic ---
+ const roleSelect = document.getElementById('select');
+ const branchSection = document.querySelector('.branch-section');
+
+ function toggleBranchVisibility() {
+   const selectedRole = roleSelect.value.toLowerCase();
+
+   if (selectedRole === 'director') {
+     branchSection.style.display = 'none';
+   } else if (selectedRole === 'sales agent' || selectedRole === 'manager') {
+     branchSection.style.display = 'block';
+   } else {
+     branchSection.style.display = 'block'; // Default visibility
+   }
+ }
+
+ // Initial state on page load
+ toggleBranchVisibility();
+
+ // Listen for changes in the role dropdown
+ roleSelect.addEventListener('change', toggleBranchVisibility);

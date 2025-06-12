@@ -17,34 +17,6 @@ body {
   width: 100%;
 }
 
-.sidebar {
-  width: 200px;
-  background-color: #162938;
-  color: white;
-  padding: 20px;
-  box-shadow: 2px 4px 6px;
-  height: 90%;
-  /* min-height: 80vh; */
-}
-
-.sidebar .logo {
-  font-size: large;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.sidebar nav a {
-  display: block;
-  padding: 10px;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.sidebar nav a.active, .sidebar nav a:hover {
-  background-color: #34495e;
-}
-
 .content {
   flex-grow: 1;
   padding: 20px;
@@ -79,7 +51,7 @@ body {
 }
 
 .card {
-  background-color: #162938;
+  background-color: rgba(128, 128, 128, 0.979);
   padding: 40px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px #f3ba36;
@@ -91,7 +63,7 @@ body {
 
 .card-title {
   font-weight: bold;
-  color: white;
+  color: #162938;
   margin-bottom: 10px;
 }
 
@@ -120,6 +92,7 @@ body {
 .chart-container h2 {
   margin-bottom: 15px;
   color: black;
+
 }
 
 .profile {
@@ -319,8 +292,8 @@ footer.page-footer {
 
 /* Default card styling */
 .card {
-  background-color: #162938;
-  color: #fff;
+  background-color: white;
+  color: #162938;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
@@ -328,6 +301,7 @@ footer.page-footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   height: 100px;
   box-shadow: 0 2px 4px #f3ba36;
+  font-weight: bold;
 }
 
 /* Hover effect */

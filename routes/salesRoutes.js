@@ -13,7 +13,7 @@ router.get(
   async (req, res) => {
     if (req.session.user.role === "sales agent" || req.session.user.role === "manager") {
       try {
-        const produce = await Produce.findById("6818f7cac7d9f13a6c6de5ee");
+        const produce = await Produce.findById("6818bd19927586a513ba2ec5");
         if (!produce) {
           return res.status(404).send("Produce not found");
         }

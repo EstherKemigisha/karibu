@@ -1,4 +1,4 @@
-doctype html
+
 html(lang="en")
   head
     meta(charset='UTF-8')
@@ -12,23 +12,35 @@ html(lang="en")
         // Register Form (Now comes first with the 'active' class)
         #register.form-section.active
           h2 Register
-          form#form(action='/signingup' method='post' nonvalidate)
-            input#fullName(type='name' name='fullName' placeholder='Full Name' )
-            input#registerEmail(type='email' name='email' placeholder='Email' )
-            input#registerPassword(type='password' name='password' placeholder='Password' )
+          form#form(action='/signingup' method='post' novalidate)
+            .form-control
+              input#fullName(type='name' name='fullName' placeholder='Full Name')
+              span.error-message
 
-            label.spaced#role(for='role') Role:
-            select.spaced#select(name="role")
-              option(value="") Select Role
-              option(value="sales agent") Sales Agent
-              option(value="manager") Manager
-              option(value="director") Director
+            .form-control
+              input#registerEmail(type='email' name='email' placeholder='Email')
+              span.error-message
 
-            .branch-section
+            .form-control
+              input#registerPassword(type='password' name='password' placeholder='Password')
+              span.error-message
+
+
+            .form-control
+              label.spaced#role(for='role') Role:
+              select.spaced#select(name="role")
+                option(value="") Select Role
+                option(value="sales agent") Sales Agent
+                option(value="manager") Manager
+                option(value="director") Director
+              span.error-message
+
+            .branch-section.form-control
               label.spaced#bra(for='branch') Branch:
               select.spaced(name="branch" id="branch")
                 option(value="maganjo") Maganjo
                 option(value="mattuga") Mattuga
+              span.error-message
 
             button#registerSubmit.submit-btn(type="submit") Register
             p.switch-form
@@ -39,8 +51,14 @@ html(lang="en")
         #login.form-section
           h2 Login
           form#loginform(action='/login' method='post')
-            input#email(type='text' name='email' placeholder='Email')
-            input#loginPassword(type='password' name='password' placeholder='Password')
+            .form-control
+              input#email(type='text' name='email' placeholder='Email')
+              span.error-message
+
+            .form-control
+              input#loginPassword(type='password' name='password' placeholder='Password')
+              span.error-message
+
             button#loginSubmit.submit-btn(type='submit') Login
             p.switch-form
               | Don't have an account?
@@ -56,5 +74,4 @@ html(lang="en")
     // Footer Section
     footer.page-footer
       Kemigisha Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
-  script(src='/js/signup.js') 
-  
+  script(src='/js/signup.js')

@@ -19,11 +19,11 @@ html
         .navbar-links
           a(href='/') Home
           a(href='/addProduce') Procurement
-          a(href='/produceList') Produce List
-          a(href='/addSale/6817c4ba5196923ebaa7c46a') Sales
-          a(href='/salesList') Sales List
-          a(href='/credit') Credit Payment
-          a(href='/creditList') Credit List
+          //- a(href='/produceList') Produce List
+          a(href='/addSale/6818bd19927586a513ba2ec5') Sales
+          //- a(href='/salesList') Sales List
+          a(href='/credit') Record Credit 
+          //- a(href='/creditList') Credit List
           a(href='/logout') Logout
 
     // Stock Table Section
@@ -45,7 +45,7 @@ html
             th Dealers
             th Payment Method
             th Date
-            th Time
+            //- th Time
             th Update
             th Delete
         tbody#stock-table
@@ -60,8 +60,10 @@ html
                 td #{item.branch}
                 td #{item.dealers}
                 td #{item.paymentmethod}
-                td(data-date=item.date)= item.date ? new Date(item.date).toLocaleString() : 'N/A'
-                td #{item.time}
+                td(data-date=item.date)= item.date && new Date(item.date).toLocaleString()
+
+
+                //- td #{item.time}
                 td
                   a.button-update.table-button(href="/updateProduce/"+item._id) Update
                 td
@@ -72,5 +74,5 @@ html
     // Footer
     footer.page-footer
       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
-
+      script(src='/js/produce.js')
 

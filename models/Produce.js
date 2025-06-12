@@ -45,9 +45,8 @@ const produceSchema = new mongoose.Schema({
   },
   stock: {
     type: Number,
-    required: true,
-    min: 0, // Ensure stock cannot be negative
-    default: 0, // Default stock level
+    default: function () {
+    return this.tonnage;
   },
   status: {
     type: String,
@@ -66,8 +65,8 @@ const produceSchema = new mongoose.Schema({
   lastUpdated: {
     type: Date,
     default: Date.now, // Automatically set the last updated timestamp
-  },
-});
+  }
+}});
 produceSchema.pre("save", function (next) {
   console.log("Stock value before saving:", this.stock); // Log the stock value
   next();

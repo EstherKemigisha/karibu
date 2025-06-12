@@ -1,43 +1,3 @@
-//- doctype html
-//- html
-//-   head
-//-     meta(charset='UTF-8')
-//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-//-     title Login & Registration
-//-     link(rel='stylesheet' href='/css/signup.css')
-//-   body
-//-     .container
-//-       .form-container
-//-         // Login Form
-//-         form#login.form-section.active(action="/login" method="post")
-//-           h2 Login
-//-           input#loginEmail(type='email' placeholder='Email' name="email")
-//-           p.error-message#emailError // Error message for email
-//-           input#loginPassword(type='password' placeholder='Password' name="password")
-//-           p.error-message#passwordError // Error message for password
-//-           button#loginSubmit.submit-btn Login
-//-           p.switch-form
-//-             | Don&apos;t have an account? 
-//-             a#switchToRegister(href='#') Register
-
-//-         // Register Form
-//-         #register.form-section
-//-           h2 Register
-//-           input#registerUsername(type='text' placeholder='Username')
-//-           input#registerEmail(type='email' placeholder='Email')
-//-           input#registerPassword(type='password' placeholder='Password')
-//-           button#registerSubmit.submit-btn Register
-//-           p.switch-form
-//-             | Already have an account? 
-//-             a#switchToLogin(href='#') Login
-
-//-       .welcome-box
-//-         h2 WELCOME KARIBU GROCERIES LTD!
-//-         p Your fresh buy grocery
-//-         a.link-btn(href='/') Back
-
-//-     script(src='/js/signup.js')
-
 doctype html
 html
   head
@@ -49,12 +9,14 @@ html
     .container
       .form-container
         // Login Form
-        form#login.form-section.active(action="/login" method="post")
+        form#login.form-section.active(action="/login" method="post" novalidate)
           h2 Login
-          input#loginEmail(type='email' placeholder='Email' name="email")
-          p.error-message#emailError // Error message for email
-          input#loginPassword(type='password' placeholder='Password' name="password")
-          p.error-message#passwordError // Error message for password
+          .form-control
+            input#email(type='text' placeholder='Email' name="email")
+            span.error-message
+          .form-control
+            input#loginPassword(type='password' placeholder='Password' name="password")
+            span.error-message
           button#loginSubmit.submit-btn Login
           p.switch-form
             | Don&apos;t have an account? 
@@ -63,13 +25,30 @@ html
         // Register Form
         #register.form-section
           h2 Register
-          input#registerUsername(type='text' placeholder='Username')
-          input#registerEmail(type='email' placeholder='Email')
-          input#registerPassword(type='password' placeholder='Password')
-          button#registerSubmit.submit-btn Register
-          p.switch-form
-            | Already have an account? 
-            a#switchToLogin(href='#') Login
+          form#registerForm(action="/signingup" method="post" novalidate)
+            .form-control
+              input#registerUsername(type='text' placeholder='Username' name="username")
+              span.error-message
+            .form-control
+              input#registerEmail(type='text' placeholder='Email' name="email")
+              span.error-message
+            .form-control
+              input#registerPassword(type='password' placeholder='Password' name="password")
+              span.error-message
+            .form-control
+              input#confirmPassword(type='password' placeholder='Confirm Password')
+              span.error-message
+            .form-control
+              select#select(name='role')
+                option(value='') Select Role
+                option(value='director') Director
+                option(value='manager') Manager
+                option(value='sales agent') Sales Agent
+              span.error-message
+            button#registerSubmit.submit-btn Register
+            p.switch-form
+              | Already have an account? 
+              a#switchToLogin(href='#') Login
 
       .welcome-box
         h2 WELCOME KARIBU GROCERIES LTD!
@@ -81,3 +60,5 @@ html
       p Kemigisha Esther © 2025 Karibu Groceries Ltd. All rights reserved.
 
     script(src='/js/signup.js')
+
+

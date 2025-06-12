@@ -6,23 +6,23 @@ const signupSchema = new mongoose.Schema({
   fullName: {
     type: String,
     trim: true,
-    required: true, // Ensure fullName is required
+   // Ensure fullName is required
   },
   email: {
     type: String,
     trim: true,
     unique: true, // Email must be unique
-    required: true, // Ensure email is required
+   // Ensure email is required
   },
   branch: {
     type: String,
     trim: true,
-    required: true, // Ensure branch is required
+   // Ensure branch is required
   },
   role: {
     type: String,
     trim: true,
-    required: true, // Ensure role is required
+   // Ensure role is required
   },
 });
 

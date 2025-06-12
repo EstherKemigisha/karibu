@@ -36,11 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxTonnage = parseFloat(tonnageField.getAttribute("max"));
     const value = parseFloat(tonnageField.value);
 
-    if (isNaN(value) || value <= 0 || value > maxTonnage) {
-      showError(tonnageField, `Please enter a valid tonnage (1-${maxTonnage} kgs).`);
+    if (isNaN(value) || value < 100) {
+      showError(tonnageField, `Please enter a valid tonnage (100 kgs or more).`);
     } else {
       clearError(tonnageField);
     }
+    
   }
 
   function validatePricePerKgField() {

@@ -21,7 +21,7 @@ router.post("/signingup", async (req, res) => {
     if (!fullName || !email || !password || !branch || !role) {
       console.log("Registration failed: Missing required fields");
       return res.status(400).render("signup", {
-        error: "All fields are required. Please fill them in.",
+
       });
     }
 
@@ -30,7 +30,7 @@ router.post("/signingup", async (req, res) => {
     if (existingUser) {
       console.log("Registration failed: Email already exists", email);
       return res.status(400).render("signup", {
-        error: "Email already exists. Please use a different email.",
+       
       });
     }
 
@@ -52,13 +52,13 @@ router.post("/signingup", async (req, res) => {
     // Handle specific errors
     if (error.name === "MissingUsernameError") {
       return res.status(400).render("signup", {
-        error: "Email is required. Please provide a valid email.",
+      
       });
     }
 
     // Handle other errors
     res.status(500).render("signup", {
-      error: "An unexpected error occurred. Please try again later.",
+     
     });
   }
 });

@@ -302,63 +302,9 @@ footer {
     align-items: center; /* Center content horizontally */
     box-sizing: border-box; /* Include padding in width calculation */
   }
-  
-  aside.sidebar .logo {
-    font-size: 1.5em; /* Adjust size as needed */
-    font-weight: bold;
-    color: #FFD369; /* Yellow color for the logo text */
-    margin-bottom: 30px; /* Space below the logo */
-  }
-  
-  aside.sidebar br {
-    display: none; /* Hide the <br> elements used for spacing in the HTML */
-  }
-  
-  aside.sidebar nav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; /* Make links take full width */
-  }
-  
-  aside.sidebar nav a {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    text-decoration: none;
-    color: #EEEEEE;
-    margin-bottom: 5px; /* Space between links */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  aside.sidebar nav a:hover {
-    background-color: #393E46; /* Slightly lighter background on hover */
-  }
-  
-  aside.sidebar nav a i {
-    margin-right: 10px;
-    font-size: 1.2em; /* Adjust icon size */
-    width: 20px; /* Ensure consistent icon width */
-    text-align: center; /* Center the icon within its space */
-  }
-  
   /* Style for the "Home" link to match the active state in the image */
   aside.sidebar nav a[href="/"] {
     background-color: #2A363B; /* Slightly different background for active/selected */
-  }
-  
-  /* Specific styling for the "Logout" and "Back" links to match the image */
-  aside.sidebar nav a[href="/logout"],
-  aside.sidebar nav a[href="/"][title="Back"] { /* Assuming you might add a title for "Back" */
-    /* Add any specific styling if needed, e.g., different hover color */
-  }
-  
-  .profile-img{
-    width: 80px;
-    height: 80px;
-    border-radius: 60%;
-    margin-bottom: 10px;
   }
   
   /* === Navbar Styles === */
@@ -446,7 +392,43 @@ footer.page-footer {
   color: #6c757d;
 }
 
+/* sales.css */
 
+/* Existing styles for your sales form */
+/* ... */
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: red;
+}
+
+.error-message {
+  display: block;
+  margin-top: 5px;
+  color: red;
+  font-size: 0.8em; /* Reduced font size */
+}
 
 
   
